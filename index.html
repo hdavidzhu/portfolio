@@ -1,9 +1,9 @@
-<!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title>David Zhu</title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.css"> <link rel="stylesheet" href="styles/main.css"> <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">  <body ng-app="hdavidzhugithubioApp" ng-controller="MainCtrl" data-images-loaded> <script src="bower_components/please-wait/build/please-wait.js"></script> <script type="text/javascript">var start = new Date().getTime();
+<!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title>David Zhu</title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.css"> <link rel="stylesheet" href="styles/main.css"> <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">  <body ng-app="hdavidzhugithubioApp" ng-controller="MainCtrl"> <script src="bower_components/please-wait/build/please-wait.js"></script> <script type="text/javascript">var start = new Date().getTime();
         window.loading_screen = window.pleaseWait({
           logo: "images/DZ.png",
           backgroundColor: '#fff',
           loadingHtml: "<div class='spinner'><div class='dot1'></div><div class='dot2'></div></div>"
-        });</script> <!-- Add your site or application content here --> <div class="container inner"> <div class="nav" ng-include="'views/navbar.html'"></div> <div id="about" class="section_about" ng-include="'views/about.html'"></div> <div id="projects" ng-include="'views/projects.html'"></div> <!-- <div ng-view=""></div> --> <div style="clear: both"></div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        });</script> <!-- Add your site or application content here --> <div class="container inner" data-images-loaded> <div class="nav" ng-include="'views/navbar.html'" data-images-loaded></div> <div id="about" class="section_about" ng-include="'views/about.html'" data-images-loaded></div> <div id="projects" ng-include="'views/projects.html'" data-images-loaded onload="projectsLoaded()"></div> <!-- <div ng-view=""></div> --> <div style="clear: both"></div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -11,8 +11,4 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');</script> <!--[if lt IE 9]>
     <script src="scripts/oldieshim.js"></script>
-    <![endif]--> <script src="scripts/vendor.js"></script> <script src="scripts/scripts.js"></script> <script type="text/javascript">// var images = document.querySelectorAll('img');
-      // var imgLoad = imagesLoaded( images );
-      // imgLoad.on( 'always', function( instance ) {
-      //   loading_screen.finish();
-      // });</script>  
+    <![endif]--> <script src="scripts/vendor.js"></script> <script src="scripts/scripts.js"></script>  
