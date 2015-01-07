@@ -11,4 +11,8 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');</script> <!--[if lt IE 9]>
     <script src="scripts/oldieshim.js"></script>
-    <![endif]--> <script src="scripts/vendor.js"></script> <script src="scripts/scripts.js"></script> <script type="text/javascript">loading_screen.finish();</script>  
+    <![endif]--> <script src="scripts/vendor.js"></script> <script src="scripts/scripts.js"></script> <script type="text/javascript">var images = document.querySelectorAll('img');
+      var imgLoad = imagesLoaded( images );
+      imgLoad.on( 'always', function( instance ) {
+        loading_screen.finish();
+      });</script>  
