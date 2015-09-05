@@ -5,13 +5,7 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "react/react.d.ts": {
-      "commit": "d9fea91e842c2cf5bd0f7d861ac378e571d2ad7c"
-    },
     "browserify/browserify.d.ts": {
-      "commit": "d9fea91e842c2cf5bd0f7d861ac378e571d2ad7c"
-    },
-    "node/node.d.ts": {
       "commit": "d9fea91e842c2cf5bd0f7d861ac378e571d2ad7c"
     }
   }

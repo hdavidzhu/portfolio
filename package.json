@@ -22,6 +22,7 @@
   "devDependencies": {
     "gulp-concat": "^2.6.0",
     "gulp-debug": "^2.1.0",
+    "gulp-header": "^1.7.1",
     "gulp-inject": "^1.5.0",
     "gulp-plumber": "^1.0.1",
     "gulp-prompt": "^0.1.2",

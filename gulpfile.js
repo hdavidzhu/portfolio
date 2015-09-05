@@ -1,16 +1,20 @@
 // REQUIREMENTS ***************************************************************
 
 var gulp = require('gulp');
+var fs = require('fs');
+var header = require('gulp-header');
+
 var lts = require('typescript');
 var ts = require('gulp-typescript');
+
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var plumber = require('gulp-plumber');
-var fs = require('fs');
 
-var tsPath = 'src/app/**/*.{ts,tsx}';
-var compilePath = 'dist';
-var dist = 'src/js/dist';
+var tsPath = 'src/**/*.{ts,tsx}';
+var tsDefPath = 'typings/**/*.{ts,tsx}';
+var bufferPath = 'buffer';
+var distPath = 'dist';
 
 // HELPERS ********************************************************************
 var getPackageJson = function () {
@@ -43,22 +47,33 @@ gulp.task('bump', function() {
     .pipe(gulp.dest('./'));
 });
 
+gulp.task('addReference', function() {
+  gulp.src(tsPath)
+    .pipe(header('/// <reference path="../typings/react/react.d.ts" />'))
+    .pipe(gulp.dest('buffer/withHeaders'));
+});
+
 gulp.task('typescript', function() {
-  var tsResult = gulp.src(tsPath)
+  var tsResult = gulp.src([tsPath, tsDefPath])
     .pipe(ts({
       typescript: lts,
       target: 'ES5',
       declarationFiles: false,
-      noExternalResolve: false,
+      noExternalResolve: true,
       jsx: 'preserve'
     }));
 
-  tsResult.dts.pipe(gulp.dest(compilePath + '/tsdefinitions'));
-  return tsResult.js.pipe(gulp.dest(compilePath + '/app'));
+  tsResult.dts.pipe(gulp.dest(bufferPath + '/tsdefinitions'));
+  return tsResult.js.pipe(gulp.dest(bufferPath + '/js'));
+});
+
+gulp.task('browserify', function() {
+
 });
 
 gulp.task('watch', function() {
   gulp.watch([tsPath], ['typescript']);
+  // gulp.watch([tsPath], ['addReference']);
 });
 
 // Run the gulp tasks 
