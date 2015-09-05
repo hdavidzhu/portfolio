@@ -1,0 +1,35 @@
+{
+  "name": "hdavidzhu.github.io",
+  "version": "1.0.0",
+  "description": "David Zhu's personal website.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdavidzhu/hdavidzhu.github.io.git"
+  },
+  "author": "David Zhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hdavidzhu/hdavidzhu.github.io/issues"
+  },
+  "homepage": "https://github.com/hdavidzhu/hdavidzhu.github.io#readme",
+  "dependencies": {
+    "gulp-bump": "^0.3.1"
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.6.0",
+    "gulp-debug": "^2.1.0",
+    "gulp-inject": "^1.5.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-prompt": "^0.1.2",
+    "gulp-rimraf": "^0.1.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-tslint": "^3.2.0",
+    "gulp-typescript": "^2.8.2",
+    "gulp-uglify": "^1.4.0",
+    "typescript": "^1.6.0-beta"
+  }
+}
