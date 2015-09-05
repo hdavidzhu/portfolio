@@ -8,7 +8,7 @@ var concat = require('gulp-concat');
 var plumber = require('gulp-plumber');
 var fs = require('fs');
 
-var tsPath = 'src/*.{ts,tsx}';
+var tsPath = 'src/app/**/*.{ts,tsx}';
 var compilePath = 'dist';
 var dist = 'src/js/dist';
 
@@ -49,7 +49,7 @@ gulp.task('typescript', function() {
       typescript: lts,
       target: 'ES5',
       declarationFiles: false,
-      noExternalResolve: true,
+      noExternalResolve: false,
       jsx: 'preserve'
     }));
 
