@@ -2,10 +2,15 @@
 
 var gulp = require('gulp');
 var fs = require('fs');
-var header = require('gulp-header');
+var shell = require('gulp-shell');
+var source = require('vinyl-source-stream');
+var runSequence = require('run-sequence');
 
 var lts = require('typescript');
 var ts = require('gulp-typescript');
+
+var browserify = require('browserify');
+var reactify = require('reactify');
 
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
@@ -17,41 +22,12 @@ var bufferPath = 'buffer';
 var distPath = 'dist';
 
 // HELPERS ********************************************************************
+
 var getPackageJson = function () {
   return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 };
 
 // TASKS **********************************************************************
-
-// Bump versions on package/bower/manifest.
-gulp.task('bump', function() {
-
-  var pkg = getPackageJson(); // Re-get package.
-  var newVer = semver.inc(pkg.version, 'patch'); // Increment version.
- 
-  // Uses gulp-filter.
-  var manifestFilter = tasks.filter(['manifest.json']);
-  var regularJsons = tasks.filter(['!manifest.json']);
- 
-  return gulp.src([
-      './bower.json', 
-      './package.json'
-    ])
-    .pipe(tasks.bump({
-      version: newVer
-    }))
-    .pipe(manifestFilter)
-    .pipe(gulp.dest('./src'))
-    .pipe(manifestFilter.restore())
-    .pipe(regularJsons)
-    .pipe(gulp.dest('./'));
-});
-
-gulp.task('addReference', function() {
-  gulp.src(tsPath)
-    .pipe(header('/// <reference path="../typings/react/react.d.ts" />'))
-    .pipe(gulp.dest('buffer/withHeaders'));
-});
 
 gulp.task('typescript', function() {
   var tsResult = gulp.src([tsPath, tsDefPath])
@@ -67,14 +43,35 @@ gulp.task('typescript', function() {
   return tsResult.js.pipe(gulp.dest(bufferPath + '/js'));
 });
 
-gulp.task('browserify', function() {
-
+// Compile jsx into Javascript.
+gulp.task('browserify', function(){
+  var b = browserify();
+  b.transform(reactify); // Use the reactify transform.
+  b.add('buffer/js/index.jsx');
+  return b.bundle()
+    .pipe(source('script.js'))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('watch', function() {
-  gulp.watch([tsPath], ['typescript']);
-  // gulp.watch([tsPath], ['addReference']);
+  gulp.watch([tsPath], ['build']);
+});
+
+// Run a basic python server.
+gulp.task('server', shell.task([
+  "python -m SimpleHTTPServer 8000",
+]));
+
+gulp.task('build', function() {
+  runSequence('typescript', 'browserify');
 });
 
 // Run the gulp tasks 
-gulp.task('default', ['typescript', 'watch']);
+gulp.task('default', [
+
+  'build', 
+
+  'watch', 
+  'server'
+
+]);

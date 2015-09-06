@@ -1,21 +1,26 @@
-import React = __React;
+// import React = __React;
 
-class DemoProps {
-  public name: string;
-  public age: number;
-}
+// React Router requirements.
+var Router = window.ReactRouter;
+var Route = window.ReactRouter.Route;
+var RouteHandler = window.ReactRouter.RouteHandler;
 
-class Demo extends React.Component<DemoProps, any> {
-  private foo: number;
-  
-  constructor(props:DemoProps) {
-    super(props);
-    this.foo = 42;
-  }
-  
+var Main = require('./Main/Main.jsx');
+
+class App extends React.Component<any, any> {
   render() {
     return (
-      <div>Hello world!</div>
+      <RouteHandler/>
     );
   }
 }
+
+var routes = (
+  <Route handler={App}>
+    <Route handler={Main} />
+  </Route>
+);
+
+Router.run(routes, function (Handler) {
+  React.render(<Handler/>, document.getElementById('content'));
+});

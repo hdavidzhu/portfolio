@@ -1,22 +1,27 @@
+// import React = __React;
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var React = __React;
-var DemoProps = (function () {
-    function DemoProps() {
+// React Router requirements.
+var Router = window.ReactRouter;
+var Route = window.ReactRouter.Route;
+var RouteHandler = window.ReactRouter.RouteHandler;
+var Main = require('./Main/Main.jsx');
+var App = (function (_super) {
+    __extends(App, _super);
+    function App() {
+        _super.apply(this, arguments);
     }
-    return DemoProps;
-})();
-var Demo = (function (_super) {
-    __extends(Demo, _super);
-    function Demo(props) {
-        _super.call(this, props);
-        this.foo = 42;
-    }
-    Demo.prototype.render = function () {
-        return (<div>Hello world!</div>);
+    App.prototype.render = function () {
+        return (<RouteHandler />);
     };
-    return Demo;
+    return App;
 })(React.Component);
+var routes = (<Route handler={App}>
+    <Route handler={Main}/>
+  </Route>);
+Router.run(routes, function (Handler) {
+    React.render(<Handler />, document.getElementById('content'));
+});
