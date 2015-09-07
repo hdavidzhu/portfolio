@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/hdavidzhu/hdavidzhu.github.io#readme",
   "devDependencies": {
+    "browserify": "^11.0.1",
     "gulp": "^3.9.0",
     "gulp-shell": "^0.4.3",
+    "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0"
   }
 }

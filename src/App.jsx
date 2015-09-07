@@ -15,10 +15,18 @@ var App = React.createClass({
 
 var routes = (
   <Route handler={App}>
-    <Route handler={Main}>
+    <Route handler={Main}></Route>
   </Route>
 );
 
-Router.run(routes, function (Handler) {
-  React.render(<Handler/>, document.getElementById('content'));
-});
+// Router.run(routes,(Root) => {
+//   React.render(<Root/>, document.body);
+// });
+
+window.onload = function() {
+  Router.run(routes, function (Handler) {
+    // console.log(document.getElementById('content'));
+    // React.render(<Handler/>, document.body);
+    React.render(<Handler/>, document.getElementById('content'));
+  });
+}

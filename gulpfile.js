@@ -2,25 +2,26 @@
 var gulp = require('gulp');
 var shell = require('gulp-shell');
 var source = require("vinyl-source-stream");
-var watch = require('gulp-watch');
-var flatten = require('gulp-flatten');
+// var flatten = require('gulp-flatten');
 
 // Javascript.
 var browserify = require('browserify');
 var reactify = require('reactify');
 
 // CSS.
-var sass = require('gulp-sass');
-var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer-core');
+// var sass = require('gulp-sass');
+// var postcss = require('gulp-postcss');
+// var autoprefixer = require('autoprefixer-core');
 
 // TASKS **********************************************************************
 
 // Start server.
 gulp.task('server', shell.task([
   'pkill python',
-  'python -m SimpleHTTPServer 8000'
-]));
+  'python -m SimpleHTTPServer 8000',
+], {
+  ignoreErrors: true
+}));
 
 // Compile jsx into Javascript.
 gulp.task('browserify', function(){
