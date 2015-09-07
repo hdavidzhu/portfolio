@@ -1,1 +1,0 @@
-<h3 id="projects_label">&gt&gt PROJECTS</h3> <div ng-controller="ProjectsController"> <div ng-repeat="project in projects | limitTo:limit" ng-include="project"></div> <div infinite-scroll="loadAllProjects()" infinite-scroll-distance="1"> <div ng-repeat="moreProject in moreProjects" ng-include="moreProject"> <div style="clear: both"></div> </div> </div></div>

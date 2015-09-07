@@ -1,99 +1,66 @@
-// REQUIREMENTS ***************************************************************
-
+// General.
 var gulp = require('gulp');
-var fs = require('fs');
 var shell = require('gulp-shell');
-var source = require('vinyl-source-stream');
-var merge = require('merge2');
+var source = require("vinyl-source-stream");
+var watch = require('gulp-watch');
+var flatten = require('gulp-flatten');
 
-// var runSequence = require('run-sequence');
-// var gCallback = require('gulp-callback');
-
-var lts = require('typescript');
-var ts = require('gulp-typescript');
-
+// Javascript.
 var browserify = require('browserify');
 var reactify = require('reactify');
-var watchify = require('watchify');
-var tsify = require('tsify');
-var assign = require('lodash').assign;
 
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var plumber = require('gulp-plumber');
-
-// HELPERS ********************************************************************
+// CSS.
+var sass = require('gulp-sass');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer-core');
 
 // TASKS **********************************************************************
 
-// Typescript to javascript.
-var tsPath = 'src/**/*.{ts,tsx}';
-var tsDefPath = 'typings/**/*.{ts,tsx}';
-var bufferPath = 'buffer';
-var distPath = 'dist';
+// Start server.
+gulp.task('server', shell.task([
+  'pkill python',
+  'python -m SimpleHTTPServer 8000'
+]));
 
-var tsProject = ts.createProject({
-  typescript: lts,
-  target: 'ES5',
-  declarationFiles: false,
-  noExternalResolve: true,
-  jsx: 'preserve'
-});
-
-gulp.task('typescript', function() {
-
-  console.log("Running typscript.");
-
-  var tsResult = gulp.src([tsPath, tsDefPath])
-    .pipe(ts(tsProject));
-
-  tsResult.dts.pipe(gulp.dest(bufferPath + '/tsdefinitions'));
-  return tsResult.js.pipe(gulp.dest(bufferPath + '/js'));
-});
-
-gulp.task('watch', function() {
-  gulp.watch([tsPath], ['typescript']);
-});
-
-// Custom browserify options.
-var customOpts = {
-  entries: ['./src/index.tsx'],
-  debug: true
-};
-
-gulp.task('browserify', ['typescript'], function(callback){
-
-  var opts = assign({}, watchify.args, customOpts);
-  var b = watchify(browserify(opts));
-  b.transform(reactify);
-
-  // var b = browserify();
-  // b.transform(reactify); // Use the reactify transform.
-  // b.add('buffer/js/index.jsx');
-  
+// Compile jsx into Javascript.
+gulp.task('browserify', function(){
+  var b = browserify();
+  b.transform(reactify); // Use the reactify transform.
+  b.add('src/App.jsx');
   return b.bundle()
     .pipe(source('script.js'))
     .pipe(gulp.dest('dist'));
 });
 
-// gulp.task('build', function() {
-//   runSequence('typescript', 'browserify');
+gulp.task('watch', function() {
+  gulp.watch('src/**/*.js*', ['browserify']);
+
+  // TODO: Not sure why this is necessary.
+  // gulp.watch('src/**/*.scss', ['scss:copy']);
+  // gulp.watch('scss/**/*.scss', ['scss:process']);
+});
+
+// // Compile Sass into css.
+// gulp.task('scss:copy', function() {
+//   gulp.src('src/**/*.scss', {base: 'src'})
+//     .pipe(watch('src/**/*.scss', {base: 'src'}))
+//     .pipe(flatten())
+//     .pipe(gulp.dest('scss/_components'));
 // });
 
-// Run a basic python server.
-gulp.task('server', shell.task([
-  "pkill python",
-  "python -m SimpleHTTPServer 8000",
-]));
+// gulp.task('scss:process', function() {
+//   var processors = [
+//     autoprefixer({browsers: ['last 2 version']})
+//   ];
 
-// Run the gulp tasks 
+//   gulp.src('scss/style.scss')
+//     .pipe(sass().on('error', sass.logError))
+//     .pipe(postcss(processors))
+//     .pipe(gulp.dest('public'));
+// });
+
 gulp.task('default', [
-
-  // 'build',
-  'typescript',
   'browserify',
-
   'watch',
-  'server'
-
+  'server',
 ]);
