@@ -16,26 +16,21 @@
     "url": "https://github.com/hdavidzhu/hdavidzhu.github.io/issues"
   },
   "homepage": "https://github.com/hdavidzhu/hdavidzhu.github.io#readme",
-  "dependencies": {
-    "gulp-bump": "^0.3.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "browserify": "^11.0.1",
+    "gulp-callback": "0.0.3",
     "gulp-concat": "^2.6.0",
-    "gulp-debug": "^2.1.0",
-    "gulp-header": "^1.7.1",
-    "gulp-inject": "^1.5.0",
     "gulp-plumber": "^1.0.1",
-    "gulp-prompt": "^0.1.2",
-    "gulp-rimraf": "^0.1.1",
     "gulp-shell": "^0.4.3",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-tslint": "^3.2.0",
     "gulp-typescript": "^2.8.2",
     "gulp-uglify": "^1.4.0",
+    "merge2": "^0.3.6",
     "reactify": "^1.1.1",
     "run-sequence": "^1.1.2",
+    "tsify": "^0.11.11",
     "typescript": "^1.6.0-beta",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
   }
 }

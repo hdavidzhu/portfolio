@@ -4,74 +4,96 @@ var gulp = require('gulp');
 var fs = require('fs');
 var shell = require('gulp-shell');
 var source = require('vinyl-source-stream');
-var runSequence = require('run-sequence');
+var merge = require('merge2');
+
+// var runSequence = require('run-sequence');
+// var gCallback = require('gulp-callback');
 
 var lts = require('typescript');
 var ts = require('gulp-typescript');
 
 var browserify = require('browserify');
 var reactify = require('reactify');
+var watchify = require('watchify');
+var tsify = require('tsify');
+var assign = require('lodash').assign;
 
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var plumber = require('gulp-plumber');
 
+// HELPERS ********************************************************************
+
+// TASKS **********************************************************************
+
+// Typescript to javascript.
 var tsPath = 'src/**/*.{ts,tsx}';
 var tsDefPath = 'typings/**/*.{ts,tsx}';
 var bufferPath = 'buffer';
 var distPath = 'dist';
 
-// HELPERS ********************************************************************
-
-var getPackageJson = function () {
-  return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-};
-
-// TASKS **********************************************************************
+var tsProject = ts.createProject({
+  typescript: lts,
+  target: 'ES5',
+  declarationFiles: false,
+  noExternalResolve: true,
+  jsx: 'preserve'
+});
 
 gulp.task('typescript', function() {
+
+  console.log("Running typscript.");
+
   var tsResult = gulp.src([tsPath, tsDefPath])
-    .pipe(ts({
-      typescript: lts,
-      target: 'ES5',
-      declarationFiles: false,
-      noExternalResolve: true,
-      jsx: 'preserve'
-    }));
+    .pipe(ts(tsProject));
 
   tsResult.dts.pipe(gulp.dest(bufferPath + '/tsdefinitions'));
   return tsResult.js.pipe(gulp.dest(bufferPath + '/js'));
 });
 
-// Compile jsx into Javascript.
-gulp.task('browserify', function(){
-  var b = browserify();
-  b.transform(reactify); // Use the reactify transform.
-  b.add('buffer/js/index.jsx');
+gulp.task('watch', function() {
+  gulp.watch([tsPath], ['typescript']);
+});
+
+// Custom browserify options.
+var customOpts = {
+  entries: ['./src/index.tsx'],
+  debug: true
+};
+
+gulp.task('browserify', ['typescript'], function(callback){
+
+  var opts = assign({}, watchify.args, customOpts);
+  var b = watchify(browserify(opts));
+  b.transform(reactify);
+
+  // var b = browserify();
+  // b.transform(reactify); // Use the reactify transform.
+  // b.add('buffer/js/index.jsx');
+  
   return b.bundle()
     .pipe(source('script.js'))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', function() {
-  gulp.watch([tsPath], ['build']);
-});
+// gulp.task('build', function() {
+//   runSequence('typescript', 'browserify');
+// });
 
 // Run a basic python server.
 gulp.task('server', shell.task([
+  "pkill python",
   "python -m SimpleHTTPServer 8000",
 ]));
-
-gulp.task('build', function() {
-  runSequence('typescript', 'browserify');
-});
 
 // Run the gulp tasks 
 gulp.task('default', [
 
-  'build', 
+  // 'build',
+  'typescript',
+  'browserify',
 
-  'watch', 
+  'watch',
   'server'
 
 ]);

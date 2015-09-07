@@ -1,9 +1,10 @@
-// import React = __React;
+// try { import React = __React; } catch(e) {}
+import React = require("react");
 
 // React Router requirements.
-var Router = window.ReactRouter;
-var Route = window.ReactRouter.Route;
-var RouteHandler = window.ReactRouter.RouteHandler;
+var Router = ReactRouter;
+var Route = ReactRouter.Route;
+var RouteHandler = ReactRouter.RouteHandler;
 
 var Main = require('./Main/Main.jsx');
 
