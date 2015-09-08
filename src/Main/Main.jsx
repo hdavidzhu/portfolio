@@ -5,7 +5,7 @@ var Main = React.createClass({
   render: function() {
     return (
       <div>
-        <div> Hello world! </div>
+        <div>Main Card</div>
         <Cards></Cards>
         <Footer></Footer>
       </div>

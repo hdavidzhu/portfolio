@@ -36,7 +36,7 @@ window.onload = function() {
 var Cards = React.createClass({displayName: "Cards",
   render: function() {
     return (
-      React.createElement("div", null, " Hello world! ")
+      React.createElement("div", null, "Cards")
     );
   }
 });
@@ -47,7 +47,7 @@ module.exports = Cards;
 var Footer = React.createClass({displayName: "Footer",
   render: function() {
     return (
-      React.createElement("div", null, " Hello world! ")
+      React.createElement("div", null, "Footer")
     );
   }
 });
@@ -62,7 +62,7 @@ var Main = React.createClass({displayName: "Main",
   render: function() {
     return (
       React.createElement("div", null, 
-        React.createElement("div", null, " Hello world! "), 
+        React.createElement("div", null, "Main Card"), 
         React.createElement(Cards, null), 
         React.createElement(Footer, null)
       )
