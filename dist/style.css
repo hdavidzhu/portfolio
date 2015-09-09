@@ -1,7 +1,9 @@
 body {
   margin: 0;
-  padding: 0;
-  background-color: gray; }
+  padding: 0; }
+
+.card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
 #content {
   background-color: white; }
@@ -11,9 +13,19 @@ body {
   height: 300px; }
 
 .cards {
+  margin: 20px;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
 
 .card {
   background-color: red;

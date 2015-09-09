@@ -5,4 +5,6 @@ $card-dimension: 300px;
   width: $card-dimension;
   height: $card-dimension;
   margin: 10px;
+
+  @extend %sh1;
 }

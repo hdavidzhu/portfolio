@@ -4,7 +4,7 @@ var Cards = React.createClass({
   render: function() {
     return (
       <div className="cards">
-        Cards
+        <Card />
         <Card />
         <Card />
         <Card />

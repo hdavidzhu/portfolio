@@ -60,7 +60,7 @@ var Cards = React.createClass({displayName: "Cards",
   render: function() {
     return (
       React.createElement("div", {className: "cards"}, 
-        "Cards", 
+        React.createElement(Card, null), 
         React.createElement(Card, null), 
         React.createElement(Card, null), 
         React.createElement(Card, null)
@@ -92,7 +92,6 @@ var Main = React.createClass({displayName: "Main",
   render: function() {
     return (
       React.createElement("div", null, 
-        React.createElement("div", null, "Main Card"), 
         React.createElement(Cards, null), 
         React.createElement(Footer, null)
       )
