@@ -1,7 +1,14 @@
+var Card = require('../Card/Card.jsx');
+
 var Cards = React.createClass({
   render: function() {
     return (
-      <div>Cards</div>
+      <div className="cards">
+        Cards
+        <Card />
+        <Card />
+        <Card />
+      </div>
     );
   }
 });

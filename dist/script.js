@@ -32,29 +32,59 @@ window.onload = function() {
   });
 }
 
-},{"./Main/Main.jsx":4}],2:[function(require,module,exports){
+},{"./Main/Main.jsx":5}],2:[function(require,module,exports){
+// Properties: 
+  
+  // Square fit picture.
+  // Four sub pictures with padding.
+
+  // Local or external link.
+  // 
+
+
+
+var Card = React.createClass({displayName: "Card",
+  render: function() {
+    return (
+      React.createElement("div", {className: "card"}, "Card")
+    );
+  }
+});
+
+module.exports = Card;
+
+},{}],3:[function(require,module,exports){
+var Card = require('../Card/Card.jsx');
+
 var Cards = React.createClass({displayName: "Cards",
   render: function() {
     return (
-      React.createElement("div", null, "Cards")
+      React.createElement("div", {className: "cards"}, 
+        "Cards", 
+        React.createElement(Card, null), 
+        React.createElement(Card, null), 
+        React.createElement(Card, null)
+      )
     );
   }
 });
 
 module.exports = Cards;
 
-},{}],3:[function(require,module,exports){
+},{"../Card/Card.jsx":2}],4:[function(require,module,exports){
 var Footer = React.createClass({displayName: "Footer",
   render: function() {
     return (
-      React.createElement("div", null, "Footer")
+      React.createElement("div", {id: "footer"}, 
+        "Footer"
+      )
     );
   }
 });
 
 module.exports = Footer;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var Cards = require('../Cards/Cards.jsx');
 var Footer = require('../Footer/Footer.jsx');
 
@@ -72,4 +102,4 @@ var Main = React.createClass({displayName: "Main",
 
 module.exports = Main;
 
-},{"../Cards/Cards.jsx":2,"../Footer/Footer.jsx":3}]},{},[1]);
+},{"../Cards/Cards.jsx":3,"../Footer/Footer.jsx":4}]},{},[1]);
