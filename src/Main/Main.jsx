@@ -6,7 +6,6 @@ var Main = React.createClass({
     return (
       <div>
         <Cards></Cards>
-        <Footer></Footer>
       </div>
     );
   }

@@ -2,47 +2,40 @@
 // React Router requirements.
 var Router = window.ReactRouter;
 var Route = window.ReactRouter.Route;
+var DefaultRoute = window.ReactRouter.DefaultRoute;
 var RouteHandler = window.ReactRouter.RouteHandler;
 
 var Main = require('./Main/Main.jsx');
+var Expansion = require('./Expansion/Expansion.jsx');
+
+var Footer = require('./Footer/Footer.jsx');
 
 var App = React.createClass({displayName: "App",
   render: function() {
     return (
-      React.createElement(RouteHandler, null)
+      React.createElement("div", null, 
+        React.createElement(RouteHandler, null), 
+        React.createElement(Footer, null)
+      )
     );
   }
 });
 
 var routes = (
-  React.createElement(Route, {handler: App}, 
-    React.createElement(Route, {handler: Main})
+  React.createElement(Route, {handler: App, path: "/"}, 
+    React.createElement(DefaultRoute, {handler: Main}), 
+    React.createElement(Route, {name: "expansion", path: "/exp/:expansionID", handler: Expansion}
+    )
   )
 );
 
-// Router.run(routes,(Root) => {
-//   React.render(<Root/>, document.body);
-// });
-
-window.onload = function() {
+window.onload = function() {  
   Router.run(routes, function (Handler) {
-    // console.log(document.getElementById('content'));
-    // React.render(<Handler/>, document.body);
     React.render(React.createElement(Handler, null), document.getElementById('content'));
   });
 }
 
-},{"./Main/Main.jsx":5}],2:[function(require,module,exports){
-// Properties: 
-  
-  // Square fit picture.
-  // Four sub pictures with padding.
-
-  // Local or external link.
-  // 
-
-
-
+},{"./Expansion/Expansion.jsx":4,"./Footer/Footer.jsx":5,"./Main/Main.jsx":6}],2:[function(require,module,exports){
 var Card = React.createClass({displayName: "Card",
   render: function() {
     return (
@@ -72,6 +65,17 @@ var Cards = React.createClass({displayName: "Cards",
 module.exports = Cards;
 
 },{"../Card/Card.jsx":2}],4:[function(require,module,exports){
+var Expansion = React.createClass({displayName: "Expansion",
+  render: function() {
+    return (
+      React.createElement("div", {className: "expansion"}, "Expansion")
+    );
+  }
+});
+
+module.exports = Expansion;
+
+},{}],5:[function(require,module,exports){
 var Footer = React.createClass({displayName: "Footer",
   render: function() {
     return (
@@ -84,7 +88,7 @@ var Footer = React.createClass({displayName: "Footer",
 
 module.exports = Footer;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var Cards = require('../Cards/Cards.jsx');
 var Footer = require('../Footer/Footer.jsx');
 
@@ -92,8 +96,7 @@ var Main = React.createClass({displayName: "Main",
   render: function() {
     return (
       React.createElement("div", null, 
-        React.createElement(Cards, null), 
-        React.createElement(Footer, null)
+        React.createElement(Cards, null)
       )
     );
   }
@@ -101,4 +104,4 @@ var Main = React.createClass({displayName: "Main",
 
 module.exports = Main;
 
-},{"../Cards/Cards.jsx":3,"../Footer/Footer.jsx":4}]},{},[1]);
+},{"../Cards/Cards.jsx":3,"../Footer/Footer.jsx":5}]},{},[1]);
