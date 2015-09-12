@@ -10,7 +10,9 @@ var Expansion = React.createClass({
 
   componentDidMount: function() {
     var _this = this;
-    $.get('/content/hello.md', function(data) {
+    var document_id = _this.getParams().expansionID;
+
+    $.get('/content/' + document_id + '.md', function(data) {
       _this.state.content = marked(data);
       _this.setState(_this.state);
     });
