@@ -39,10 +39,9 @@ var Card = React.createClass({displayName: "Card",
   
   mixins: [ Router.Navigation ],
 
-  
+
 
   _goToExpansion: function() {
-    // console.log("Clicking on this link.");
     this.transitionTo('expansion', {
       expansionID: 'hello'
     });
@@ -78,19 +77,32 @@ var Cards = React.createClass({displayName: "Cards",
 module.exports = Cards;
 
 },{"../Card/Card.jsx":2}],4:[function(require,module,exports){
-
-
 var Expansion = React.createClass({displayName: "Expansion",
 
   mixins: [ Router.State ],
 
+  getInitialState: function() {
+    return {
+      content: ""   
+    };
+  },
+
+  componentDidMount: function() {
+    var _this = this;
+    $.get('/content/hello.md', function(data) {
+      _this.state.content = marked(data);
+      _this.setState(_this.state);
+    });
+  },
+
   render: function() {
-  
+    var _this = this
     var test = this.getParams();
     console.log(test);
 
     return (
-      React.createElement("div", {className: "expansion"}, "Expansion")
+      React.createElement("div", {className: "expansion", 
+        dangerouslySetInnerHTML: {__html: _this.state.content}})
     );
   }
 });

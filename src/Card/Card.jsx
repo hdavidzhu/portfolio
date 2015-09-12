@@ -2,10 +2,9 @@ var Card = React.createClass({
   
   mixins: [ Router.Navigation ],
 
-  
+
 
   _goToExpansion: function() {
-    // console.log("Clicking on this link.");
     this.transitionTo('expansion', {
       expansionID: 'hello'
     });
