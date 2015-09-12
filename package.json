@@ -28,5 +28,8 @@
     "gulp-watch": "^4.3.5",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "marked": "^0.3.5"
   }
 }

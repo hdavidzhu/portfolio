@@ -1,9 +1,9 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 // React Router requirements.
-var Router = window.ReactRouter;
-var Route = window.ReactRouter.Route;
-var DefaultRoute = window.ReactRouter.DefaultRoute;
-var RouteHandler = window.ReactRouter.RouteHandler;
+Router = window.ReactRouter;
+Route = window.ReactRouter.Route;
+DefaultRoute = window.ReactRouter.DefaultRoute;
+RouteHandler = window.ReactRouter.RouteHandler;
 
 var Main = require('./Main/Main.jsx');
 var Expansion = require('./Expansion/Expansion.jsx');
@@ -14,8 +14,7 @@ var App = React.createClass({displayName: "App",
   render: function() {
     return (
       React.createElement("div", null, 
-        React.createElement(RouteHandler, null), 
-        React.createElement(Footer, null)
+        React.createElement(RouteHandler, null)
       )
     );
   }
@@ -37,9 +36,23 @@ window.onload = function() {
 
 },{"./Expansion/Expansion.jsx":4,"./Footer/Footer.jsx":5,"./Main/Main.jsx":6}],2:[function(require,module,exports){
 var Card = React.createClass({displayName: "Card",
+  
+  mixins: [ Router.Navigation ],
+
+  
+
+  _goToExpansion: function() {
+    // console.log("Clicking on this link.");
+    this.transitionTo('expansion', {
+      expansionID: 'hello'
+    });
+  },
+
   render: function() {
+    var _this = this;
+    
     return (
-      React.createElement("div", {className: "card"}, "Card")
+      React.createElement("div", {className: "card", onClick: _this._goToExpansion})
     );
   }
 });
@@ -65,8 +78,17 @@ var Cards = React.createClass({displayName: "Cards",
 module.exports = Cards;
 
 },{"../Card/Card.jsx":2}],4:[function(require,module,exports){
+
+
 var Expansion = React.createClass({displayName: "Expansion",
+
+  mixins: [ Router.State ],
+
   render: function() {
+  
+    var test = this.getParams();
+    console.log(test);
+
     return (
       React.createElement("div", {className: "expansion"}, "Expansion")
     );

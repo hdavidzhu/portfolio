@@ -1,8 +1,8 @@
 // React Router requirements.
-var Router = window.ReactRouter;
-var Route = window.ReactRouter.Route;
-var DefaultRoute = window.ReactRouter.DefaultRoute;
-var RouteHandler = window.ReactRouter.RouteHandler;
+Router = window.ReactRouter;
+Route = window.ReactRouter.Route;
+DefaultRoute = window.ReactRouter.DefaultRoute;
+RouteHandler = window.ReactRouter.RouteHandler;
 
 var Main = require('./Main/Main.jsx');
 var Expansion = require('./Expansion/Expansion.jsx');
@@ -14,7 +14,6 @@ var App = React.createClass({
     return (
       <div>
         <RouteHandler></RouteHandler>
-        <Footer></Footer>
       </div>
     );
   }
