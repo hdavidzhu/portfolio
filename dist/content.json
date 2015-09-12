@@ -1,0 +1,9 @@
+{
+  "Main": [
+    {
+      "id": "profile_picture",
+      "type": "image",
+      "url": "images/profile.jpg"
+    },
+  ]
+}

@@ -39,7 +39,10 @@ var Card = React.createClass({displayName: "Card",
   
   mixins: [ Router.Navigation ],
 
-
+  componentDidMount: function() {
+    var _this = this;
+    console.log("Card did mount.");
+  },
 
   _goToExpansion: function() {
     this.transitionTo('expansion', {
@@ -62,6 +65,26 @@ module.exports = Card;
 var Card = require('../Card/Card.jsx');
 
 var Cards = React.createClass({displayName: "Cards",
+
+  mixins: [ Router.State ],
+
+  getInitialState: function() {
+    return {
+          
+    };
+  },
+
+  componentDidMount: function() {
+    var _this = this;
+    var currentRoute = _this.getPathname();
+    console.log(currentRoute);
+    
+    // First, determine which route the information came form.
+
+    // Then, load the slides in that document and card to render.
+
+  },
+
   render: function() {
     return (
       React.createElement("div", {className: "cards"}, 
@@ -91,7 +114,7 @@ var Expansion = React.createClass({displayName: "Expansion",
     var _this = this;
     var document_id = _this.getParams().expansionID;
 
-    $.get('/content/' + document_id + '.md', function(data) {
+    $.get('/markdown/' + document_id + '.md', function(data) {
       _this.state.content = marked(data);
       _this.setState(_this.state);
     });
