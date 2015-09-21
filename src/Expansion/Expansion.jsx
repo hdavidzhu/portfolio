@@ -25,8 +25,11 @@ var Expansion = React.createClass({
     console.log(test);
 
     return (
-      <div className="expansion"
-        dangerouslySetInnerHTML={{__html: _this.state.content}}></div>
+      <div className="expansion">
+        <div className="expansion-content">
+          <div dangerouslySetInnerHTML={{__html: _this.state.content}}></div>
+        </div>
+      </div>
     );
   }
 });

@@ -2,5 +2,10 @@ body {
   margin: 0;
   padding: 0;
 
-  font-family: 'Source Sans Pro';
+  font-family: 'Merriweather', serif;
+  color: lighten( black, 12% );
+  line-height: 1.5;
+  letter-spacing: .01rem;
+  font-size: 16px;
+  padding: 20px;
 }

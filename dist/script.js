@@ -136,8 +136,11 @@ var Expansion = React.createClass({displayName: "Expansion",
     console.log(test);
 
     return (
-      React.createElement("div", {className: "expansion", 
-        dangerouslySetInnerHTML: {__html: _this.state.content}})
+      React.createElement("div", {className: "expansion"}, 
+        React.createElement("div", {className: "expansion-content"}, 
+          React.createElement("div", {dangerouslySetInnerHTML: {__html: _this.state.content}})
+        )
+      )
     );
   }
 });
