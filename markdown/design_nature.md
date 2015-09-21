@@ -6,10 +6,10 @@ The game involves a RC squid controlled by one student and a 'fisherman' control
 
 Here's a demonstration:
 
-<iframe class="video-center" width="75%" height="75%" src="//www.youtube.com/embed/EeI8vXOV7M8?rel=0&modestbranding=0&autohide=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe class="video-center" width="100%" height="337" src="//www.youtube.com/embed/EeI8vXOV7M8?rel=0&modestbranding=0&autohide=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 As young engineering students, we struggled with the early design process as well as creating the right game that supports all of our constraints. One thing that we overestimated was the power output of the servos provided for us. There was not enough drive to propel the squid against the drag of the water. Furthermore, by choosing to construct a water-based toy, we spent a lot of effort trying to keep the internal electronic devices waterproof. As you can see in the demo, the RC receiver accidentally received too much water and lost functionality.
 
 Even with the challenges of waterproofing and volatility of our demo toy, we still managed to pull together as a team to create our squid. This was an important experience for me because I gained better ability to scope engineering projects as well as reading the team atmosphere to determine what the next best move is to make.
 
-<iframe src="https://docs.google.com/presentation/d/1YfROxbFPKse1Ug_qWnGNGyaDdvQ7GdnAJv5C2P5SGFI/embed?start=false&loop=true&delayms=15000" frameborder="0" width="100%" height="470" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/1YfROxbFPKse1Ug_qWnGNGyaDdvQ7GdnAJv5C2P5SGFI/embed?start=false&loop=true&delayms=15000" frameborder="0" width="100%" height="380" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>

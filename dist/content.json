@@ -1,11 +1,6 @@
 {
   "/": [
     {
-      "id": "about",
-      "image": "images/profile.jpg",
-      "link": "about"
-    },
-    {
       "id": "autoschematic",
       "image": "images/autoschematic.jpg",
       "link": "autoschematic"

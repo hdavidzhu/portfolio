@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Merriweather', serif;
-  color: #1f1f1f;
+  color: #2b2b2b;
   line-height: 1.5;
   letter-spacing: .01rem;
   font-size: 16px;
@@ -26,12 +26,12 @@ body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
@@ -46,10 +46,5 @@ body {
     cursor: pointer; }
 
 .expansion-content {
-  max-width: 900px; }
-  .expansion-content p {
-    max-width: 594px;
-    margin-bottom: 30px; }
-  .expansion-content ul, .expansion-content ol {
-    box-sizing: border-box;
-    max-width: 594px; }
+  max-width: 600px;
+  margin: 0 auto; }

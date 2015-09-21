@@ -1,13 +1,14 @@
 .expansion-content {
-  max-width: 900px;
+  max-width: 600px;
+  margin: 0 auto;
 
-  p {
-    max-width: 594px;
-    margin-bottom: 30px;
-  }
-
-  ul, ol {
-    box-sizing: border-box;
-    max-width: 594px;
-  }
+  // p {
+  //   max-width: 594px;
+  //   margin-bottom: 30px;
+  // }
+  //
+  // ul, ol {
+  //   box-sizing: border-box;
+  //   max-width: 594px;
+  // }
 }

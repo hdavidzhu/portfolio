@@ -1,6 +1,6 @@
 # Puzzlegrounds (User Oriented Collaborative Design Spring 2014)
 
-<iframe src="https://docs.google.com/presentation/d/1MENVGSvest06In8uNvoydaMyYH0u55fgHOfJUGTWm6A/embed?start=true&loop=true&delayms=60000" frameborder="0" width="100%" height="470" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/1MENVGSvest06In8uNvoydaMyYH0u55fgHOfJUGTWm6A/embed?start=true&loop=true&delayms=60000" frameborder="0" width="100%" height="380" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 In the Spring of 2014, Olin's most famous design course 'User Oriented Collaborative Design' challenged my team to learn as much as we can about the puzzle community: to identify their needs, values, and opportunity spaces; to generate solutions to meet their needs; and to produce an effective proposal while concurrently iterating our solutions with members of the puzzle community.
 

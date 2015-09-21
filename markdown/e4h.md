@@ -12,4 +12,4 @@ For the wife, we made a shopping list manager. It contains the most common items
 
 I've gained a lot of experience in empathy and designing with the right language and context in time. I've also learned that the most effective solutions are not the most complex; simplicity actually makes our solutions easier to manage for our users.
 
-<iframe src="https://docs.google.com/presentation/d/1Qt1jpfsgIWmP8Hd_VvCR59ZQlJ8LArNGphrLlNQhUqY/embed?start=false&loop=true&delayms=300000000" frameborder="0" width="100%" height="470" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/1Qt1jpfsgIWmP8Hd_VvCR59ZQlJ8LArNGphrLlNQhUqY/embed?start=false&loop=true&delayms=300000000" frameborder="0" width="100%" height="380" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
