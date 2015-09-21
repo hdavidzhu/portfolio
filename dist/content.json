@@ -1,9 +1,59 @@
 {
-  "Main": [
+  "/": [
     {
-      "id": "profile_picture",
-      "type": "image",
-      "url": "images/profile.jpg"
+      "id": "about",
+      "image": "images/profile.jpg",
+      "link": "about"
     },
+    {
+      "id": "autoschematic",
+      "image": "images/autoschematic.jpg",
+      "link": "autoschematic"
+    },
+    {
+      "id": "design_nature",
+      "image": "images/design_nature.jpg",
+      "link": "design_nature"
+    },
+    {
+      "id": "e4h",
+      "image": "images/e4h.jpg",
+      "link": "e4h"
+    },
+    {
+      "id": "knock_knock",
+      "image": "images/knock_knock.jpg",
+      "link": "knock_knock"
+    },
+    {
+      "id": "maven",
+      "image": "images/maven.jpg",
+      "link": "maven"
+    },
+    {
+      "id": "path",
+      "image": "images/path.jpg",
+      "link": "path"
+    },
+    {
+      "id": "puzzlegrounds",
+      "image": "images/puzzlegrounds.jpg",
+      "link": "puzzlegrounds"
+    },
+    {
+      "id": "pyre_emblem",
+      "image": "images/pyre_emblem.jpg",
+      "link": "pyre_emblem"
+    },
+    {
+      "id": "save_the_children",
+      "image": "images/save_the_children.jpg",
+      "link": "save_the_children"
+    },
+    {
+      "id": "tesla",
+      "image": "images/tesla.jpg",
+      "link": "tesla"
+    }
   ]
 }

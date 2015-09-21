@@ -5,12 +5,15 @@ Route = window.ReactRouter.Route;
 DefaultRoute = window.ReactRouter.DefaultRoute;
 RouteHandler = window.ReactRouter.RouteHandler;
 
+CardContent = {};
+
 var Main = require('./Main/Main.jsx');
 var Expansion = require('./Expansion/Expansion.jsx');
 
 var Footer = require('./Footer/Footer.jsx');
 
 var App = React.createClass({displayName: "App",
+
   render: function() {
     return (
       React.createElement("div", null, 
@@ -28,33 +31,51 @@ var routes = (
   )
 );
 
-window.onload = function() {  
+$.get('dist/content.json', function(content) {
+  CardContent = content;
   Router.run(routes, function (Handler) {
     React.render(React.createElement(Handler, null), document.getElementById('content'));
   });
-}
+});
+
+// window.onload = function() {
+//   Router.run(routes, function (Handler) {
+//     React.render(<Handler/>, document.getElementById('content'));
+//   });
+// }
 
 },{"./Expansion/Expansion.jsx":4,"./Footer/Footer.jsx":5,"./Main/Main.jsx":6}],2:[function(require,module,exports){
 var Card = React.createClass({displayName: "Card",
-  
+
   mixins: [ Router.Navigation ],
 
   componentDidMount: function() {
     var _this = this;
     console.log("Card did mount.");
+
+    console.log(_this.props.content);
   },
 
   _goToExpansion: function() {
-    this.transitionTo('expansion', {
-      expansionID: 'hello'
+    var _this = this;
+    _this.transitionTo('expansion', {
+      expansionID: _this.props.content.link
     });
   },
 
   render: function() {
     var _this = this;
-    
+
+    var cardStyle = {
+      'background-image': "url('" + _this.props.content.image + "')"
+    }
+
     return (
-      React.createElement("div", {className: "card", onClick: _this._goToExpansion})
+      React.createElement("div", {
+        className: "card", 
+        style: cardStyle, 
+        onClick: _this._goToExpansion
+      })
     );
   }
 });
@@ -65,33 +86,21 @@ module.exports = Card;
 var Card = require('../Card/Card.jsx');
 
 var Cards = React.createClass({displayName: "Cards",
-
   mixins: [ Router.State ],
 
-  getInitialState: function() {
-    return {
-          
-    };
-  },
-
-  componentDidMount: function() {
+  render: function() {
     var _this = this;
     var currentRoute = _this.getPathname();
-    console.log(currentRoute);
-    
-    // First, determine which route the information came form.
+    var cardsToRender = CardContent[currentRoute];
 
-    // Then, load the slides in that document and card to render.
+    var cards = [];
+    for (cardIndex in cardsToRender) {
+      cards[cardIndex] = React.createElement(Card, {content: cardsToRender[cardIndex]})
+    }
 
-  },
-
-  render: function() {
     return (
       React.createElement("div", {className: "cards"}, 
-        React.createElement(Card, null), 
-        React.createElement(Card, null), 
-        React.createElement(Card, null), 
-        React.createElement(Card, null)
+        cards
       )
     );
   }
@@ -106,7 +115,7 @@ var Expansion = React.createClass({displayName: "Expansion",
 
   getInitialState: function() {
     return {
-      content: ""   
+      content: ""
     };
   },
 
@@ -114,6 +123,7 @@ var Expansion = React.createClass({displayName: "Expansion",
     var _this = this;
     var document_id = _this.getParams().expansionID;
 
+    $.ajaxSetup({ cache: false });
     $.get('/markdown/' + document_id + '.md', function(data) {
       _this.state.content = marked(data);
       _this.setState(_this.state);

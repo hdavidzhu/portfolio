@@ -4,12 +4,15 @@ Route = window.ReactRouter.Route;
 DefaultRoute = window.ReactRouter.DefaultRoute;
 RouteHandler = window.ReactRouter.RouteHandler;
 
+CardContent = {};
+
 var Main = require('./Main/Main.jsx');
 var Expansion = require('./Expansion/Expansion.jsx');
 
 var Footer = require('./Footer/Footer.jsx');
 
 var App = React.createClass({
+
   render: function() {
     return (
       <div>
@@ -27,8 +30,15 @@ var routes = (
   </Route>
 );
 
-window.onload = function() {  
+$.get('dist/content.json', function(content) {
+  CardContent = content;
   Router.run(routes, function (Handler) {
     React.render(<Handler/>, document.getElementById('content'));
   });
-}
+});
+
+// window.onload = function() {
+//   Router.run(routes, function (Handler) {
+//     React.render(<Handler/>, document.getElementById('content'));
+//   });
+// }

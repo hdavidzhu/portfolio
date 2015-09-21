@@ -4,7 +4,7 @@ var Expansion = React.createClass({
 
   getInitialState: function() {
     return {
-      content: ""   
+      content: ""
     };
   },
 
@@ -12,6 +12,7 @@ var Expansion = React.createClass({
     var _this = this;
     var document_id = _this.getParams().expansionID;
 
+    $.ajaxSetup({ cache: false });
     $.get('/markdown/' + document_id + '.md', function(data) {
       _this.state.content = marked(data);
       _this.setState(_this.state);
@@ -24,7 +25,7 @@ var Expansion = React.createClass({
     console.log(test);
 
     return (
-      <div className="expansion" 
+      <div className="expansion"
         dangerouslySetInnerHTML={{__html: _this.state.content}}></div>
     );
   }
