@@ -11,6 +11,9 @@ body {
 .card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
+.card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
 #content {
   background-color: white; }
 
@@ -19,6 +22,7 @@ body {
   height: 300px; }
 
 .cards {
+  margin: 20px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -36,7 +40,16 @@ body {
   width: 300px;
   height: 300px;
   margin: 10px;
+  transition: 0.1s ease;
   background-size: cover; }
+  .card:hover {
+    cursor: pointer; }
 
 .expansion-content {
-  width: 900px; }
+  max-width: 900px; }
+  .expansion-content p {
+    max-width: 594px;
+    margin-bottom: 30px; }
+  .expansion-content ul, .expansion-content ol {
+    box-sizing: border-box;
+    max-width: 594px; }

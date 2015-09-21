@@ -4,7 +4,15 @@ $card-dimension: 300px;
   width: $card-dimension;
   height: $card-dimension;
   margin: 10px;
+  transition: 0.1s ease;
 
   background-size: cover;
+
   @extend %sh1;
+
+
+  &:hover {
+    cursor: pointer;
+    @extend %sh2;
+  }
 }
