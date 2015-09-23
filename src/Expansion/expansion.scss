@@ -1,14 +1,23 @@
+.expansion-header, .expansion-footer {
+  text-align: center;
+
+  a, span {
+    text-decoration: none;
+    color: lighten(black, 60%);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 .expansion-content {
   max-width: 600px;
   margin: 0 auto;
+}
 
-  // p {
-  //   max-width: 594px;
-  //   margin-bottom: 30px;
-  // }
-  //
-  // ul, ol {
-  //   box-sizing: border-box;
-  //   max-width: 594px;
-  // }
+.expansion-footer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
 }

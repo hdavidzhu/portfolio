@@ -38,26 +38,23 @@ $.get('dist/content.json', function(content) {
   });
 });
 
-// window.onload = function() {
-//   Router.run(routes, function (Handler) {
-//     React.render(<Handler/>, document.getElementById('content'));
-//   });
-// }
-
 },{"./Expansion/Expansion.jsx":4,"./Footer/Footer.jsx":5,"./Main/Main.jsx":6}],2:[function(require,module,exports){
 var Card = React.createClass({displayName: "Card",
 
   mixins: [ Router.Navigation ],
 
+  onEnter: function() {
+    console.log("entered");
+    this.forceUpdate();
+  },
+
   componentDidMount: function() {
     var _this = this;
-    console.log("Card did mount.");
-
-    console.log(_this.props.content);
   },
 
   _goToExpansion: function() {
     var _this = this;
+
     _this.transitionTo('expansion', {
       expansionID: _this.props.content.link
     });
@@ -92,10 +89,12 @@ var Cards = React.createClass({displayName: "Cards",
     var _this = this;
     var currentRoute = _this.getPathname();
     var cardsToRender = CardContent[currentRoute];
+    var content;
 
     var cards = [];
     for (cardIndex in cardsToRender) {
-      cards[cardIndex] = React.createElement(Card, {content: cardsToRender[cardIndex]})
+      content = cardsToRender[cardIndex];
+      cards[cardIndex] = React.createElement(Card, {content: content})
     }
 
     return (
@@ -111,7 +110,7 @@ module.exports = Cards;
 },{"../Card/Card.jsx":2}],4:[function(require,module,exports){
 var Expansion = React.createClass({displayName: "Expansion",
 
-  mixins: [ Router.State ],
+  mixins: [ Router.State, Router.Navigation ],
 
   getInitialState: function() {
     return {
@@ -119,10 +118,17 @@ var Expansion = React.createClass({displayName: "Expansion",
     };
   },
 
+  componentWillReceiveProps: function() {
+    this._update();
+  },
+
   componentDidMount: function() {
+    this._update();
+  },
+
+  _update: function() {
     var _this = this;
     var document_id = _this.getParams().expansionID;
-
     $.ajaxSetup({ cache: false });
     $.get('/markdown/' + document_id + '.md', function(data) {
       _this.state.content = marked(data);
@@ -130,15 +136,54 @@ var Expansion = React.createClass({displayName: "Expansion",
     });
   },
 
+  _goToNext: function() {
+    var _this = this;
+    var currentRoute = _this.getPathname();
+    var cards;
+
+    if (currentRoute.indexOf('exp') > -1) {
+      cards = CardContent['/'];
+    }
+
+    var cardIndex;
+    var expansionID = _this.getParams().expansionID;
+    for(var i = 0, len = cards.length; i < len; i++) {
+      if (cards[i].link === expansionID) {
+        cardIndex = i;
+        break;
+      }
+    }
+
+    var nextLink;
+    if (cardIndex === cards.length - 1) {
+      nextLink = cards[0].link;
+    } else {
+      nextLink = cards[cardIndex + 1].link;
+    }
+
+    console.log(nextLink);
+    this.transitionTo('expansion', {
+      expansionID: nextLink
+    });
+  },
+
   render: function() {
     var _this = this
     var test = this.getParams();
-    console.log(test);
 
     return (
       React.createElement("div", {className: "expansion"}, 
         React.createElement("div", {className: "expansion-content"}, 
-          React.createElement("div", {dangerouslySetInnerHTML: {__html: _this.state.content}})
+          React.createElement("div", {className: "expansion-header"}, 
+            React.createElement("a", {href: "/"}, "― DAVID ZHU ―")
+          ), 
+
+          React.createElement("div", {dangerouslySetInnerHTML: {__html: _this.state.content}}), 
+
+          React.createElement("div", {className: "expansion-footer"}, 
+            React.createElement("a", {href: "/"}, "← HOME"), 
+            React.createElement("span", {onClick: _this._goToNext}, "NEXT →")
+          )
         )
       )
     );

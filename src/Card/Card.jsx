@@ -2,15 +2,18 @@ var Card = React.createClass({
 
   mixins: [ Router.Navigation ],
 
+  onEnter: function() {
+    console.log("entered");
+    this.forceUpdate();
+  },
+
   componentDidMount: function() {
     var _this = this;
-    console.log("Card did mount.");
-
-    console.log(_this.props.content);
   },
 
   _goToExpansion: function() {
     var _this = this;
+
     _this.transitionTo('expansion', {
       expansionID: _this.props.content.link
     });

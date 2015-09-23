@@ -2,52 +2,52 @@
   "/": [
     {
       "id": "autoschematic",
-      "image": "images/autoschematic.jpg",
+      "image": "images/projects/autoschematic.png",
       "link": "autoschematic"
     },
     {
       "id": "design_nature",
-      "image": "images/design_nature.jpg",
+      "image": "images/projects/squid.png",
       "link": "design_nature"
     },
     {
       "id": "e4h",
-      "image": "images/e4h.jpg",
+      "image": "images/projects/foxes.jpg",
       "link": "e4h"
     },
     {
       "id": "knock_knock",
-      "image": "images/knock_knock.jpg",
+      "image": "images/projects/knock-knock.png",
       "link": "knock_knock"
     },
     {
       "id": "maven",
-      "image": "images/maven.jpg",
+      "image": "images/projects/maven.png",
       "link": "maven"
     },
     {
       "id": "path",
-      "image": "images/path.jpg",
+      "image": "images/projects/path.jpg",
       "link": "path"
     },
     {
       "id": "puzzlegrounds",
-      "image": "images/puzzlegrounds.jpg",
+      "image": "images/projects/puzzlegrounds.png",
       "link": "puzzlegrounds"
     },
     {
       "id": "pyre_emblem",
-      "image": "images/pyre_emblem.jpg",
+      "image": "images/projects/pyre.jpg",
       "link": "pyre_emblem"
     },
     {
       "id": "save_the_children",
-      "image": "images/save_the_children.jpg",
+      "image": "images/projects/save-the-children.png",
       "link": "save_the_children"
     },
     {
       "id": "tesla",
-      "image": "images/tesla.jpg",
+      "image": "images/projects/tesla.jpg",
       "link": "tesla"
     }
   ]

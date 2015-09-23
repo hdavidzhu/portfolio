@@ -7,10 +7,12 @@ var Cards = React.createClass({
     var _this = this;
     var currentRoute = _this.getPathname();
     var cardsToRender = CardContent[currentRoute];
+    var content;
 
     var cards = [];
     for (cardIndex in cardsToRender) {
-      cards[cardIndex] = <Card content={cardsToRender[cardIndex]} />
+      content = cardsToRender[cardIndex];
+      cards[cardIndex] = <Card content={content} />
     }
 
     return (

@@ -36,9 +36,3 @@ $.get('dist/content.json', function(content) {
     React.render(<Handler/>, document.getElementById('content'));
   });
 });
-
-// window.onload = function() {
-//   Router.run(routes, function (Handler) {
-//     React.render(<Handler/>, document.getElementById('content'));
-//   });
-// }
