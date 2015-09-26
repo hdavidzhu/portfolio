@@ -87,8 +87,8 @@ var Cards = React.createClass({displayName: "Cards",
 
   render: function() {
     var _this = this;
-    var currentRoute = _this.getPathname();
-    var cardsToRender = CardContent[currentRoute];
+    var currentTopic = _this.props.topic;
+    var cardsToRender = CardContent[currentTopic];
     var content;
 
     var cards = [];
@@ -175,7 +175,7 @@ var Expansion = React.createClass({displayName: "Expansion",
       React.createElement("div", {className: "expansion"}, 
         React.createElement("div", {className: "expansion-content"}, 
           React.createElement("div", {className: "expansion-header"}, 
-            React.createElement("a", {href: "/"}, "― DAVID ZHU ―")
+            React.createElement("a", {href: "#"}, "― DAVID ZHU ―")
           ), 
 
           React.createElement("div", {dangerouslySetInnerHTML: {__html: _this.state.content}}), 
@@ -206,14 +206,18 @@ var Footer = React.createClass({displayName: "Footer",
 module.exports = Footer;
 
 },{}],6:[function(require,module,exports){
+var Profile = require('../Profile/Profile.jsx');
 var Cards = require('../Cards/Cards.jsx');
-var Footer = require('../Footer/Footer.jsx');
 
 var Main = React.createClass({displayName: "Main",
   render: function() {
     return (
       React.createElement("div", null, 
-        React.createElement(Cards, null)
+        React.createElement(Profile, null), 
+        React.createElement("div", {className: "section-header"}, "Work"), 
+        React.createElement(Cards, {topic: "work"}), 
+        React.createElement("div", {className: "section-header"}, "Projects"), 
+        React.createElement(Cards, {topic: "projects"})
       )
     );
   }
@@ -221,4 +225,33 @@ var Main = React.createClass({displayName: "Main",
 
 module.exports = Main;
 
-},{"../Cards/Cards.jsx":3,"../Footer/Footer.jsx":5}]},{},[1]);
+},{"../Cards/Cards.jsx":3,"../Profile/Profile.jsx":7}],7:[function(require,module,exports){
+var Profile = React.createClass({displayName: "Profile",
+  render: function() {
+    return (
+      React.createElement("div", {id: "profile"}, 
+        React.createElement("div", null, 
+          React.createElement("div", {id: "profile-image"}), 
+          React.createElement("div", {id: "icons-holder"}, 
+
+React.createElement("a", {href: "https://www.linkedin.com/in/hdavidzhu", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "linkedin"})), 
+React.createElement("a", {href: "https://github.com/hdavidzhu", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "github"})), 
+React.createElement("a", {href: "https://medium.com/@hdavidzhu/", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "medium"})), 
+React.createElement("a", {href: "https://twitter.com/hdavidzhu", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "twitter"})), 
+React.createElement("a", {href: "mailto:HelloDavidZhu@gmail.com", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "email"}))
+
+          )
+        ), 
+
+        React.createElement("div", {id: "profile-text-content"}, 
+          React.createElement("div", {id: "profile-title"}, "DAVID ZHU")
+        )
+
+      )
+    );
+  }
+});
+
+module.exports = Profile;
+
+},{}]},{},[1]);

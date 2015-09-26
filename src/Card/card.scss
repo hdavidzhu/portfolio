@@ -1,19 +1,19 @@
-$card-dimension: 300px;
+$card-dimension: 260px;
 
 .card {
   width: $card-dimension;
   height: $card-dimension;
-  margin: 10px;
+  margin: 20px;
   transition: 0.1s ease;
 
+  background-color: white;
   background-size: cover;
   background-position: center;
 
   @extend %sh1;
 
-
   &:hover {
     cursor: pointer;
-    @extend %sh2;
+    @extend %sh3;
   }
 }

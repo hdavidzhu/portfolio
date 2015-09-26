@@ -1,0 +1,50 @@
+$image-size: 200px;
+
+#profile {
+  display: flex;
+}
+
+#profile-text-content {
+  margin-left: 20px;
+}
+
+#profile-title {
+  font-size: 36px;
+  line-height: 1;
+}
+
+#profile-image {
+  height: $image-size;
+  width: $image-size;
+  background-image: url('/images/profile.jpg');
+  background-size: cover;
+  background-position: center;
+  @extend %sh1;
+}
+
+#icons-holder {
+  display: flex;
+  width: $image-size;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.sq-icon {
+  width: 35px;
+  height: 35px;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  @extend %sh1;
+
+  &:hover {
+    @extend %sh3;
+    cursor: pointer;
+  }
+}
+
+#linkedin { background-image: url('/images/icons/linkedin.png'); }
+#github { background-image: url('/images/icons/github.png'); }
+#medium { background-image: url('/images/icons/medium.png'); }
+#twitter { background-image: url('/images/icons/twitter.png'); }
+#email { background-image: url('/images/icons/email.png'); }

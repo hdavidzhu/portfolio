@@ -7,13 +7,14 @@
 
     &:hover {
       text-decoration: underline;
+      cursor: pointer;
     }
   }
 }
 
 .expansion-content {
-  max-width: 600px;
-  margin: 0 auto;
+  // max-width: 600px;
+  // margin: 0 auto;
 }
 
 .expansion-footer {

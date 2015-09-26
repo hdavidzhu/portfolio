@@ -1,5 +1,22 @@
 {
-  "/": [
+  "work": [
+    {
+      "id": "pillpack",
+      "image": "images/work/pillpack.png",
+      "link": "pillpack"
+    },
+    {
+      "id": "involution",
+      "image": "images/work/invo.jpg",
+      "link": "involution"
+    },
+    {
+      "id": "huanglab",
+      "image": "images/work/huang.png",
+      "link": "huanglab"
+    }
+  ],
+  "projects": [
     {
       "id": "autoschematic",
       "image": "images/projects/autoschematic.png",

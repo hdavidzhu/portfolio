@@ -5,8 +5,8 @@ var Cards = React.createClass({
 
   render: function() {
     var _this = this;
-    var currentRoute = _this.getPathname();
-    var cardsToRender = CardContent[currentRoute];
+    var currentTopic = _this.props.topic;
+    var cardsToRender = CardContent[currentTopic];
     var content;
 
     var cards = [];

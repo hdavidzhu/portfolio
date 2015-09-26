@@ -6,7 +6,10 @@ body {
   line-height: 1.9;
   letter-spacing: .01rem;
   font-size: 16px;
-  padding: 20px; }
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #f2f2f2; }
 
 a {
   color: #0A5096;
@@ -16,23 +19,77 @@ a {
     text-decoration: underline; }
 
 p {
-  margin: 20px; }
+  margin: 20px 0; }
 
-.card {
+#profile-image, .sq-icon, .card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
 
-.card:hover {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+.sq-icon:hover, .card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
 
-#content {
-  background-color: white; }
+.section-header {
+  font-size: 24pt;
+  text-align: center;
+  margin-top: 50px; }
 
 #footer {
   background-color: gray;
   height: 300px; }
 
+#profile {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+#profile-text-content {
+  margin-left: 20px; }
+
+#profile-title {
+  font-size: 36px;
+  line-height: 1; }
+
+#profile-image {
+  height: 200px;
+  width: 200px;
+  background-image: url("/images/profile.jpg");
+  background-size: cover;
+  background-position: center; }
+
+#icons-holder {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px; }
+
+.sq-icon {
+  width: 35px;
+  height: 35px;
+  background-color: black;
+  background-size: cover;
+  background-position: center; }
+  .sq-icon:hover {
+    cursor: pointer; }
+
+#linkedin {
+  background-image: url("/images/icons/linkedin.png"); }
+
+#github {
+  background-image: url("/images/icons/github.png"); }
+
+#medium {
+  background-image: url("/images/icons/medium.png"); }
+
+#twitter {
+  background-image: url("/images/icons/twitter.png"); }
+
+#email {
+  background-image: url("/images/icons/email.png"); }
+
 .cards {
-  margin: 20px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -44,13 +101,16 @@ p {
           justify-content: center;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  position: relative;
+  box-sizing: border-box; }
 
 .card {
-  width: 300px;
-  height: 300px;
-  margin: 10px;
+  width: 260px;
+  height: 260px;
+  margin: 20px;
   transition: 0.1s ease;
+  background-color: white;
   background-size: cover;
   background-position: center; }
   .card:hover {
@@ -62,11 +122,8 @@ p {
     text-decoration: none;
     color: #999999; }
     .expansion-header a:hover, .expansion-header span:hover, .expansion-footer a:hover, .expansion-footer span:hover {
-      text-decoration: underline; }
-
-.expansion-content {
-  max-width: 600px;
-  margin: 0 auto; }
+      text-decoration: underline;
+      cursor: pointer; }
 
 .expansion-footer {
   display: -webkit-flex;

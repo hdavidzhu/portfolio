@@ -65,7 +65,7 @@ var Expansion = React.createClass({
       <div className="expansion">
         <div className="expansion-content">
           <div className="expansion-header">
-            <a href="/">― DAVID ZHU ―</a>
+            <a href="#">― DAVID ZHU ―</a>
           </div>
 
           <div dangerouslySetInnerHTML={{__html: _this.state.content}}></div>

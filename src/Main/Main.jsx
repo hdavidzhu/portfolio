@@ -1,11 +1,15 @@
+var Profile = require('../Profile/Profile.jsx');
 var Cards = require('../Cards/Cards.jsx');
-var Footer = require('../Footer/Footer.jsx');
 
 var Main = React.createClass({
   render: function() {
     return (
       <div>
-        <Cards></Cards>
+        <Profile></Profile>
+        <div className="section-header">Work</div>
+        <Cards topic="work"></Cards>
+        <div className="section-header">Projects</div>
+        <Cards topic="projects"></Cards>
       </div>
     );
   }
