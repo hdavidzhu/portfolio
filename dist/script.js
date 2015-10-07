@@ -71,8 +71,9 @@ var Card = React.createClass({displayName: "Card",
       React.createElement("div", {
         className: "card", 
         style: cardStyle, 
-        onClick: _this._goToExpansion
-      })
+        onClick: _this._goToExpansion}, 
+        React.createElement("div", {className: "card-blurb"}, _this.props.content.blurb)
+      )
     );
   }
 });
@@ -244,7 +245,9 @@ React.createElement("a", {href: "mailto:HelloDavidZhu@gmail.com", target: "_blan
         ), 
 
         React.createElement("div", {id: "profile-text-content"}, 
-          React.createElement("div", {id: "profile-title"}, "DAVID ZHU")
+          React.createElement("div", {id: "profile-title"}, "DAVID ZHU"), 
+          React.createElement("div", {id: "profile-description"}, "Student @ Olin College of Engineering"), 
+          React.createElement("div", {id: "profile-description"}, "Dev and Design Intern @ PillPack, Involution Studios")
         )
 
       )

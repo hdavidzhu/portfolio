@@ -30,8 +30,9 @@ var Card = React.createClass({
       <div
         className="card"
         style={cardStyle}
-        onClick={_this._goToExpansion}
-      ></div>
+        onClick={_this._goToExpansion}>
+        <div className="card-blurb">{_this.props.content.blurb}</div>
+      </div>
     );
   }
 });
