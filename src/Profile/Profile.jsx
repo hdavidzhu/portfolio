@@ -17,8 +17,8 @@ var Profile = React.createClass({
 
         <div id="profile-text-content">
           <div id="profile-title">DAVID ZHU</div>
-          <div id="profile-description">Student @ Olin College of Engineering</div>
           <div id="profile-description">Dev and Design Intern @ PillPack, Involution Studios</div>
+          <div id="profile-description">Student @ Olin College of Engineering</div>
         </div>
 
       </div>

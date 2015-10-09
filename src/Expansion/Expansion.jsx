@@ -32,7 +32,7 @@ var Expansion = React.createClass({
     var cards;
 
     if (currentRoute.indexOf('exp') > -1) {
-      cards = CardContent['/'];
+      cards = CardContent['projects'];
     }
 
     var cardIndex;
