@@ -232,7 +232,15 @@ var Profile = React.createClass({displayName: "Profile",
     return (
       React.createElement("div", {id: "profile"}, 
         React.createElement("div", null, 
-          React.createElement("div", {id: "profile-image"}), 
+          React.createElement("div", {id: "profile-image"})
+        ), 
+
+        React.createElement("div", {id: "profile-text-content"}, 
+          React.createElement("div", {id: "profile-title"}, "Hi, I'm David!"), 
+          React.createElement("div", {id: "profile-description"}, 
+            "Currently a developer intern at ", React.createElement("b", null, "PillPack"), "." + ' ' +
+            "Also student at ", React.createElement("b", null, "Olin College of Engineering"), "."
+          ), 
           React.createElement("div", {id: "icons-holder"}, 
 
 React.createElement("a", {href: "https://www.linkedin.com/in/hdavidzhu", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "linkedin"})), 
@@ -242,14 +250,7 @@ React.createElement("a", {href: "https://twitter.com/hdavidzhu", target: "_blank
 React.createElement("a", {href: "mailto:HelloDavidZhu@gmail.com", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "email"}))
 
           )
-        ), 
-
-        React.createElement("div", {id: "profile-text-content"}, 
-          React.createElement("div", {id: "profile-title"}, "DAVID ZHU"), 
-          React.createElement("div", {id: "profile-description"}, "Dev and Design Intern @ PillPack, Involution Studios"), 
-          React.createElement("div", {id: "profile-description"}, "Student @ Olin College of Engineering")
         )
-
       )
     );
   }

@@ -4,6 +4,14 @@ var Profile = React.createClass({
       <div id="profile">
         <div>
           <div id="profile-image"></div>
+        </div>
+
+        <div id="profile-text-content">
+          <div id="profile-title">Hi, I'm David!</div>
+          <div id="profile-description">
+            Currently a developer intern at <b>PillPack</b>.
+            Also student at <b>Olin College of Engineering</b>.
+          </div>
           <div id="icons-holder">
 
 <a href="https://www.linkedin.com/in/hdavidzhu" target="_blank"><div className="sq-icon" id="linkedin"></div></a>
@@ -14,13 +22,6 @@ var Profile = React.createClass({
 
           </div>
         </div>
-
-        <div id="profile-text-content">
-          <div id="profile-title">DAVID ZHU</div>
-          <div id="profile-description">Dev and Design Intern @ PillPack, Involution Studios</div>
-          <div id="profile-description">Student @ Olin College of Engineering</div>
-        </div>
-
       </div>
     );
   }

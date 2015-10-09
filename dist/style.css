@@ -7,8 +7,6 @@ body {
   line-height: 1.9;
   letter-spacing: .01rem;
   font-size: 16px;
-  padding: 20px;
-  max-width: 900px;
   margin: 0 auto;
   background-color: #f2f2f2; }
 
@@ -43,19 +41,31 @@ p {
   height: 300px; }
 
 #profile {
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: 300px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  min-width: 600px;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  min-width: 300px;
   margin: 0 auto;
-  background-color: white; }
+  color: white;
+  background-color: black;
+  background-image: url("https://images.unsplash.com/photo-1424460421773-58b49adfc68a?q=80&fm=jpg&s=d6061c78226c02e41281981b7e3161d3");
+  background-size: cover;
+  background-position: center; }
+
+#profile-title {
+  font-size: 45px;
+  line-height: 1.9;
+  font-weight: 700; }
 
 #profile-text-content {
   margin-left: 20px;
@@ -67,12 +77,11 @@ p {
           flex-direction: column;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
-          justify-content: center; }
-
-#profile-title {
-  font-size: 42px;
-  line-height: 1.9;
-  font-weight: 400; }
+          justify-content: center;
+  font-weight: 300;
+  font-size: 20px; }
+  #profile-text-content > b {
+    font-weight: 400; }
 
 #profile-image {
   height: 200px;
@@ -85,18 +94,21 @@ p {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 200px;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 5px; }
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin-top: 10px; }
 
 .sq-icon {
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   background-color: black;
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  margin-right: 10px; }
   .sq-icon:hover {
     cursor: pointer; }
 
@@ -129,7 +141,9 @@ p {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   position: relative;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 0 auto; }
 
 .card {
   width: 260px;
@@ -159,7 +173,7 @@ p {
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 5px;
-  opacity: 0.3;
+  opacity: 0;
   transition: 0.1s ease;
   font-weight: 400; }
   @media only screen and (max-width: 768px) {
@@ -177,7 +191,7 @@ p {
 
 .expansion-content {
   max-width: 600px;
-  margin: 0 auto; }
+  margin: 20px auto; }
 
 .expansion-footer {
   display: -webkit-flex;
