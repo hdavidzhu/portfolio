@@ -6,9 +6,9 @@ var Main = React.createClass({
     return (
       <div>
         <Profile></Profile>
-        <div className="section-header">Work</div>
+        <div className="section-header">WORK</div>
         <Cards topic="work"></Cards>
-        <div className="section-header">Projects</div>
+        <div className="section-header">PROJECTS</div>
         <Cards topic="projects"></Cards>
       </div>
     );

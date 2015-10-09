@@ -215,9 +215,9 @@ var Main = React.createClass({displayName: "Main",
     return (
       React.createElement("div", null, 
         React.createElement(Profile, null), 
-        React.createElement("div", {className: "section-header"}, "Work"), 
+        React.createElement("div", {className: "section-header"}, "WORK"), 
         React.createElement(Cards, {topic: "work"}), 
-        React.createElement("div", {className: "section-header"}, "Projects"), 
+        React.createElement("div", {className: "section-header"}, "PROJECTS"), 
         React.createElement(Cards, {topic: "projects"})
       )
     );
