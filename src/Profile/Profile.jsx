@@ -14,6 +14,7 @@ var Profile = React.createClass({
           </div>
           <div id="icons-holder">
 
+<a href="" target="_blank"><div className="sq-icon" id="resume"></div></a>
 <a href="https://www.linkedin.com/in/hdavidzhu" target="_blank"><div className="sq-icon" id="linkedin"></div></a>
 <a href="https://github.com/hdavidzhu" target="_blank"><div className="sq-icon" id="github"></div></a>
 <a href="https://medium.com/@hdavidzhu/" target="_blank"><div className="sq-icon" id="medium"></div></a>

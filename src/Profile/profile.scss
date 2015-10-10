@@ -19,11 +19,20 @@ $image-size: 200px;
   background-position: center;
 
   @extend %sh1;
+
+  @media screen and (max-width: 640px) {
+    padding-top: 40px;
+    flex-direction: column;
+  }
+
+  @include tablet {
+    padding-top: 20px;
+  };
 }
 
 #profile-title {
   font-size: 45px;
-  line-height: 1.9;
+  line-height: 1.5;
   font-weight: 700;
 }
 
@@ -32,11 +41,19 @@ $image-size: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   font-weight: 300;
   font-size: 20px;
 
   & > b {
     font-weight: 400;
+  }
+
+  @media screen and (max-width: 640px) {
+    padding-top: 40px;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
   }
 }
 
@@ -47,6 +64,11 @@ $image-size: 200px;
   background-size: cover;
   background-position: center;
   @extend %sh1;
+
+  @include mobile {
+    height: $image-size * .7;
+    width: $image-size * .7;
+  };
 }
 
 #icons-holder {
@@ -69,8 +91,14 @@ $image-size: 200px;
     @extend %sh3;
     cursor: pointer;
   }
+
+  @include mobile {
+    height: 35px;
+    width: 35px;
+  };
 }
 
+#resume { background-image: url('/images/icons/resume.png'); }
 #linkedin { background-image: url('/images/icons/linkedin.png'); }
 #github { background-image: url('/images/icons/github.png'); }
 #medium { background-image: url('/images/icons/medium.png'); }

@@ -243,6 +243,7 @@ var Profile = React.createClass({displayName: "Profile",
           ), 
           React.createElement("div", {id: "icons-holder"}, 
 
+React.createElement("a", {href: "", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "resume"})), 
 React.createElement("a", {href: "https://www.linkedin.com/in/hdavidzhu", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "linkedin"})), 
 React.createElement("a", {href: "https://github.com/hdavidzhu", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "github"})), 
 React.createElement("a", {href: "https://medium.com/@hdavidzhu/", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "medium"})), 

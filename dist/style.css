@@ -63,10 +63,19 @@ p {
   background-image: url("https://images.unsplash.com/photo-1424460421773-58b49adfc68a?q=80&fm=jpg&s=d6061c78226c02e41281981b7e3161d3");
   background-size: cover;
   background-position: center; }
+  @media screen and (max-width: 640px) {
+    #profile {
+      padding-top: 40px;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column; } }
+  @media only screen and (max-width: 768px) {
+    #profile {
+      padding-top: 20px; } }
 
 #profile-title {
   font-size: 45px;
-  line-height: 1.9;
+  line-height: 1.5;
   font-weight: 700; }
 
 #profile-text-content {
@@ -80,10 +89,21 @@ p {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   font-weight: 300;
   font-size: 20px; }
   #profile-text-content > b {
     font-weight: 400; }
+  @media screen and (max-width: 640px) {
+    #profile-text-content {
+      padding-top: 40px;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      text-align: center;
+      margin-left: 0; } }
 
 #profile-image {
   height: 200px;
@@ -91,6 +111,10 @@ p {
   background-image: url("/images/profile.jpg");
   background-size: cover;
   background-position: center; }
+  @media only screen and (max-width: 320px) {
+    #profile-image {
+      height: 140px;
+      width: 140px; } }
 
 #icons-holder {
   display: -webkit-flex;
@@ -113,6 +137,13 @@ p {
   margin-right: 10px; }
   .sq-icon:hover {
     cursor: pointer; }
+  @media only screen and (max-width: 320px) {
+    .sq-icon {
+      height: 35px;
+      width: 35px; } }
+
+#resume {
+  background-image: url("/images/icons/resume.png"); }
 
 #linkedin {
   background-image: url("/images/icons/linkedin.png"); }
