@@ -12,7 +12,7 @@ var Cards = React.createClass({
     var cards = [];
     for (cardIndex in cardsToRender) {
       content = cardsToRender[cardIndex];
-      cards[cardIndex] = <Card content={content} />
+      cards[cardIndex] = <Card content={content} topic={_this.props.topic}/>
     }
 
     return (

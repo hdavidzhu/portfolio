@@ -1,5 +1,3 @@
-# Knock Knock: Rhythm and Location Password (Spring 2013)
-
 Knock Knock is a four person final project that revolved around sensors and circuits. Our team constructed a door device that detects both the location and the rhythm of a person knocking. There is a password for the door that must be matched for the door to open, and this password is also location and rhythm determined.
 
 Here is the demo:

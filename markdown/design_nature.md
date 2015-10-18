@@ -1,5 +1,3 @@
-# RC Toy Squid Toy for Kids (Design Nature Fall 2012)
-
 One of the first major projects for first-years/freshmen was to work as a team to design a functional nature-inspired toy for 4th graders. I and four other teammates iterated through several prototypes and designs before constructing our waterproof squid and game.
 
 The game involves a RC squid controlled by one student and a 'fisherman' controlled by three students. The squid has a magnetic tentacle, and its job is to collect magnetic food items on the bottom of a kiddy swimming pool. Meanwhile, the fisherman is trying to capture the squid. If the fisherman successfully gets the squid, the squid will ink, and the game would be over. Finally, the number of food items the squid collected will be tallied up, and that would be the high score of the game.

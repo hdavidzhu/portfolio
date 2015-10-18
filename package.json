@@ -30,6 +30,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "history": "^1.12.5",
     "marked": "^0.3.5"
   }
 }

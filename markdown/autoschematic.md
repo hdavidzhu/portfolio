@@ -1,5 +1,3 @@
-# Autoschematic: The Automatic Wire Cutter / Stripper / Bender
-
 Rapid prototyping of a device that converts software-made wire schematics into physically prepared wires. No more spending ages crimping wires!
 
 <iframe class="video-center" width="100%" height="337" src="//www.youtube.com/embed/64zcuBR-tVA?rel=0&modestbranding=0&autohide=1&showinfo=0" frameborder="0" allowfullscreen></iframe>

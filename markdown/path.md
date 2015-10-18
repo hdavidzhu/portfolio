@@ -1,5 +1,3 @@
-# Path: A Python-based Game (Spring 2014)
-
 Path is a smaller project I and my buddy Charlie Mouton worked on in Spring 2014. We created a simple and unique game built on top of Pygame.
 
 The premise of the game is for our character to get from the start to the finish line. There are various challenges between the two points, and all of these challenges are designed by players who can share the levels with each other. We offer a variety of blocks that alter the physics of the character.

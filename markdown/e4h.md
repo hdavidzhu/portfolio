@@ -1,5 +1,3 @@
-# Design for the Elderly (Engineering for Humanity Spring 2014)
-
 Engineering for Humanity is a design course that focuses on designing solutions for the elderly. In this class, we have an opportunity to work with our elderly community partners. My team of three met a fantastic couple, and we were invited into their homes to conduct research, co-design, and work through various prototypes.
 
 We've identified that our couple's biggest pain point laid in memory related issues. First, the husband has medical conditions that cause him difficulty in remembering where common items are in the house, such as remote controls and car keys. However, the problem becomes a real issue as the wife has mobility issues, cannot use the stairs easily, and requires time to get from one place in the house to another.

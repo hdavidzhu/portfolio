@@ -14,7 +14,10 @@ var Card = React.createClass({
   _goToExpansion: function() {
     var _this = this;
 
-    _this.transitionTo('expansion', {
+
+
+    // TODO: Determine whether this is `work` or `project`.
+    _this.transitionTo(_this.props.topic, {
       expansionID: _this.props.content.link
     });
   },

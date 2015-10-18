@@ -8,12 +8,13 @@ body {
   letter-spacing: .01rem;
   font-size: 16px;
   margin: 0 auto;
-  background-color: #f2f2f2; }
+  background-color: white; }
 
 a {
   color: #0A5096;
   text-decoration: none;
-  position: relative; }
+  position: relative;
+  font-weight: 400; }
   a:hover {
     text-decoration: underline; }
 
@@ -105,6 +106,9 @@ p {
       text-align: center;
       margin-left: 0; } }
 
+#profile-description > b > a {
+  color: white; }
+
 #profile-image {
   height: 200px;
   width: 200px;
@@ -194,7 +198,10 @@ p {
           justify-content: center;
   background-color: white;
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  border: 1px solid #DDDDDD;
+  box-sizing: border-box;
+  border-radius: 10%; }
   .card:hover {
     cursor: pointer; }
   .card:hover .card-blurb {
@@ -226,6 +233,16 @@ p {
   max-width: 600px;
   margin: 20px auto; }
 
+.expansion-position {
+  margin: 0;
+  font-weight: 400; }
+
+.expansion-image {
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%; }
+
 .expansion-footer {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -234,3 +251,5 @@ p {
       -ms-flex-pack: distribute;
           justify-content: space-around;
   margin-top: 50px; }
+  .expansion-footer > span {
+    font-weight: 400; }

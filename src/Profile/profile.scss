@@ -57,6 +57,11 @@ $image-size: 200px;
   }
 }
 
+// TODO: This is pretty bad specificity.
+#profile-description > b> a {
+  color: white;
+}
+
 #profile-image {
   height: $image-size;
   width: $image-size;

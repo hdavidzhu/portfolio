@@ -14,6 +14,10 @@ $card-dimension: 260px;
   background-size: cover;
   background-position: center;
 
+  border: 1px solid #DDDDDD;
+  box-sizing: border-box;
+  border-radius: 10%;
+
   @extend %sh1;
 
   &:hover {

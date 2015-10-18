@@ -26,7 +26,9 @@ var App = React.createClass({displayName: "App",
 var routes = (
   React.createElement(Route, {handler: App, path: "/"}, 
     React.createElement(DefaultRoute, {handler: Main}), 
-    React.createElement(Route, {name: "expansion", path: "/exp/:expansionID", handler: Expansion}
+    React.createElement(Route, {name: "work", path: "/work/:expansionID", handler: Expansion}
+    ), 
+    React.createElement(Route, {name: "projects", path: "/projects/:expansionID", handler: Expansion}
     )
   )
 );
@@ -55,7 +57,10 @@ var Card = React.createClass({displayName: "Card",
   _goToExpansion: function() {
     var _this = this;
 
-    _this.transitionTo('expansion', {
+
+
+    // TODO: Determine whether this is `work` or `project`.
+    _this.transitionTo(_this.props.topic, {
       expansionID: _this.props.content.link
     });
   },
@@ -95,7 +100,7 @@ var Cards = React.createClass({displayName: "Cards",
     var cards = [];
     for (cardIndex in cardsToRender) {
       content = cardsToRender[cardIndex];
-      cards[cardIndex] = React.createElement(Card, {content: content})
+      cards[cardIndex] = React.createElement(Card, {content: content, topic: _this.props.topic})
     }
 
     return (
@@ -109,13 +114,15 @@ var Cards = React.createClass({displayName: "Cards",
 module.exports = Cards;
 
 },{"../Card/Card.jsx":2}],4:[function(require,module,exports){
+var unlisten;
 var Expansion = React.createClass({displayName: "Expansion",
 
   mixins: [ Router.State, Router.Navigation ],
 
   getInitialState: function() {
     return {
-      content: ""
+      content: "",
+      meta: {}
     };
   },
 
@@ -125,6 +132,17 @@ var Expansion = React.createClass({displayName: "Expansion",
 
   componentDidMount: function() {
     this._update();
+
+    // unlisten = history.listenBefore(function (location) {
+    //   // this.transitionTo('expansion', {
+    //   //   expansionID: nextLink
+    //   // });
+    //   console.log(location);
+    // });
+  },
+
+  componentWillUnmount: function() {
+    // unlisten();
   },
 
   _update: function() {
@@ -133,17 +151,48 @@ var Expansion = React.createClass({displayName: "Expansion",
     $.ajaxSetup({ cache: false });
     $.get('/markdown/' + document_id + '.md', function(data) {
       _this.state.content = marked(data);
+      _this.state.meta = _this._findIdInTree(document_id, CardContent);
       _this.setState(_this.state);
     });
+  },
+
+  // Might be an overkill.
+  _findIdInTree: function(inputId, chosenObject) {
+    var _this = this;
+    var result;
+
+    if (chosenObject.id === inputId) {
+      return chosenObject;
+    } else {
+      for (var key in chosenObject) {
+        if (chosenObject[key] instanceof Array) {
+          for (var arrElIndex in chosenObject[key]) {
+            result = _this._findIdInTree(inputId, chosenObject[key][arrElIndex]);
+            if (result) { return result; }
+          }
+        } else if (chosenObject[key] instanceof Object) {
+          result = _this._findIdInTree(inputId, chosenObject[key]);
+          if (result) { return result; }
+        }
+      }
+    }
   },
 
   _goToNext: function() {
     var _this = this;
     var currentRoute = _this.getPathname();
     var cards;
+    var cardType;
 
-    if (currentRoute.indexOf('exp') > -1) {
+    // TODO: Refactor in the future.
+    // If the string `exp` is present,
+    if (currentRoute.indexOf('work') > -1) {
+      // This parts also makes the decision of which branch to choose.
+      cards = CardContent['work'];
+      cardType = 'work';
+    } else if (currentRoute.indexOf('projects') > -1) {
       cards = CardContent['projects'];
+      cardType = 'projects';
     }
 
     var cardIndex;
@@ -163,14 +212,13 @@ var Expansion = React.createClass({displayName: "Expansion",
     }
 
     console.log(nextLink);
-    this.transitionTo('expansion', {
+    this.transitionTo(cardType, {
       expansionID: nextLink
     });
   },
 
   render: function() {
-    var _this = this
-    var test = this.getParams();
+    var _this = this;
 
     return (
       React.createElement("div", {className: "expansion"}, 
@@ -178,6 +226,10 @@ var Expansion = React.createClass({displayName: "Expansion",
           React.createElement("div", {className: "expansion-header"}, 
             React.createElement("a", {href: "#"}, "― DAVID ZHU ―")
           ), 
+
+          React.createElement("h1", null, _this.state.meta.title), 
+          React.createElement("i", null, React.createElement("div", null, _this.state.meta.date), 
+          React.createElement("div", null, _this.state.meta.position)), 
 
           React.createElement("div", {dangerouslySetInnerHTML: {__html: _this.state.content}}), 
 
@@ -238,12 +290,12 @@ var Profile = React.createClass({displayName: "Profile",
         React.createElement("div", {id: "profile-text-content"}, 
           React.createElement("div", {id: "profile-title"}, "Hi, I'm David!"), 
           React.createElement("div", {id: "profile-description"}, 
-            "Currently a developer intern at ", React.createElement("b", null, "PillPack"), "." + ' ' +
-            "Also student at ", React.createElement("b", null, "Olin College of Engineering"), "."
+            "Currently a developer intern at ", React.createElement("b", null, React.createElement("a", {href: "https://www.pillpack.com/"}, "PillPack")), "." + ' ' +
+            "Also student at ", React.createElement("b", null, React.createElement("a", {href: "https://www.olin.edu/"}, "Olin College of Engineering")), "."
           ), 
           React.createElement("div", {id: "icons-holder"}, 
 
-React.createElement("a", {href: "", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "resume"})), 
+React.createElement("a", {href: "dist/resume.pdf", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "resume"})), 
 React.createElement("a", {href: "https://www.linkedin.com/in/hdavidzhu", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "linkedin"})), 
 React.createElement("a", {href: "https://github.com/hdavidzhu", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "github"})), 
 React.createElement("a", {href: "https://medium.com/@hdavidzhu/", target: "_blank"}, React.createElement("div", {className: "sq-icon", id: "medium"})), 

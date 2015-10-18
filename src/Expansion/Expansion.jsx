@@ -1,10 +1,12 @@
+var unlisten;
 var Expansion = React.createClass({
 
   mixins: [ Router.State, Router.Navigation ],
 
   getInitialState: function() {
     return {
-      content: ""
+      content: "",
+      meta: {}
     };
   },
 
@@ -14,6 +16,17 @@ var Expansion = React.createClass({
 
   componentDidMount: function() {
     this._update();
+
+    // unlisten = history.listenBefore(function (location) {
+    //   // this.transitionTo('expansion', {
+    //   //   expansionID: nextLink
+    //   // });
+    //   console.log(location);
+    // });
+  },
+
+  componentWillUnmount: function() {
+    // unlisten();
   },
 
   _update: function() {
@@ -22,17 +35,48 @@ var Expansion = React.createClass({
     $.ajaxSetup({ cache: false });
     $.get('/markdown/' + document_id + '.md', function(data) {
       _this.state.content = marked(data);
+      _this.state.meta = _this._findIdInTree(document_id, CardContent);
       _this.setState(_this.state);
     });
+  },
+
+  // Might be an overkill.
+  _findIdInTree: function(inputId, chosenObject) {
+    var _this = this;
+    var result;
+
+    if (chosenObject.id === inputId) {
+      return chosenObject;
+    } else {
+      for (var key in chosenObject) {
+        if (chosenObject[key] instanceof Array) {
+          for (var arrElIndex in chosenObject[key]) {
+            result = _this._findIdInTree(inputId, chosenObject[key][arrElIndex]);
+            if (result) { return result; }
+          }
+        } else if (chosenObject[key] instanceof Object) {
+          result = _this._findIdInTree(inputId, chosenObject[key]);
+          if (result) { return result; }
+        }
+      }
+    }
   },
 
   _goToNext: function() {
     var _this = this;
     var currentRoute = _this.getPathname();
     var cards;
+    var cardType;
 
-    if (currentRoute.indexOf('exp') > -1) {
+    // TODO: Refactor in the future.
+    // If the string `exp` is present,
+    if (currentRoute.indexOf('work') > -1) {
+      // This parts also makes the decision of which branch to choose.
+      cards = CardContent['work'];
+      cardType = 'work';
+    } else if (currentRoute.indexOf('projects') > -1) {
       cards = CardContent['projects'];
+      cardType = 'projects';
     }
 
     var cardIndex;
@@ -52,14 +96,13 @@ var Expansion = React.createClass({
     }
 
     console.log(nextLink);
-    this.transitionTo('expansion', {
+    this.transitionTo(cardType, {
       expansionID: nextLink
     });
   },
 
   render: function() {
-    var _this = this
-    var test = this.getParams();
+    var _this = this;
 
     return (
       <div className="expansion">
@@ -67,6 +110,10 @@ var Expansion = React.createClass({
           <div className="expansion-header">
             <a href="#">― DAVID ZHU ―</a>
           </div>
+
+          <h1>{_this.state.meta.title}</h1>
+          <i><div>{_this.state.meta.date}</div>
+          <div>{_this.state.meta.position}</div></i>
 
           <div dangerouslySetInnerHTML={{__html: _this.state.content}}></div>
 

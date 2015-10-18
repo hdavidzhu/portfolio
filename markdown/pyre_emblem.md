@@ -1,5 +1,3 @@
-# Pyre Emblem: A Fire Emblem Remake (Spring 2014)
-
 Pye Emblem is the final project for my Software Design course, where we reconstructed the main functionalities of one of our favorite games - [Fire Emblem](http://en.wikipedia.org/wiki/Fire_Emblem).
 
 This project was a tremendous learning experience for me as I worked with three other people to integrate code, prioritize features, and make sure we have a functional final product for a 4 week project.

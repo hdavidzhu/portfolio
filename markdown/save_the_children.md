@@ -1,5 +1,3 @@
-# App for Save the Children: India (Mobile Prototyping Fall 2014)
-
 <iframe src="https://docs.google.com/presentation/d/1fzGBU-f20wAv0vi1ntvxc2XO1tIRSbSVYmQEioAAC78/embed?start=true&loop=true&delayms=60000" frameborder="0" width="100%" height="470" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 Save the Children: India has a tutoring organization for kids that need additional help to keep up with school work. Due to their need to balance their education and their family responsibilities, the kids in Mumbai may sometimes fall back in work, and this effect quickly builds up until the student cannot handle new school work and then drops out.

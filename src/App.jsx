@@ -25,7 +25,9 @@ var App = React.createClass({
 var routes = (
   <Route handler={App} path="/">
     <DefaultRoute handler={Main}></DefaultRoute>
-    <Route name="expansion" path="/exp/:expansionID" handler={Expansion}>
+    <Route name="work" path="/work/:expansionID" handler={Expansion}>
+    </Route>
+    <Route name="projects" path="/projects/:expansionID" handler={Expansion}>
     </Route>
   </Route>
 );
