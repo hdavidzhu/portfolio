@@ -1,0 +1,40 @@
+.expansion-header, .expansion-footer {
+  text-align: center;
+
+  a, span {
+    text-decoration: none;
+    color: lighten(black, 60%);
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.expansion-content {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.expansion-position {
+  margin: 0;
+  font-weight: 400;
+}
+
+.expansion-image {
+  width: auto;
+  height : auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.expansion-footer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+
+  & > span {
+    font-weight: 400;
+  }
+}

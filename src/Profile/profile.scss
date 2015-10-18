@@ -1,0 +1,111 @@
+$image-size: 200px;
+
+#profile {
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 300px;
+  margin: 0 auto;
+
+  color: white;
+
+  background-color: black;
+  background-image: url('https://images.unsplash.com/photo-1424460421773-58b49adfc68a?q=80&fm=jpg&s=d6061c78226c02e41281981b7e3161d3');
+  background-size: cover;
+  background-position: center;
+
+  @extend %sh1;
+
+  @media screen and (max-width: 640px) {
+    padding-top: 40px;
+    flex-direction: column;
+  }
+
+  @include tablet {
+    padding-top: 20px;
+  };
+}
+
+#profile-title {
+  font-size: 45px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+#profile-text-content {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 300;
+  font-size: 20px;
+
+  & > b {
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 640px) {
+    padding-top: 40px;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+// TODO: This is pretty bad specificity.
+#profile-description > b> a {
+  color: white;
+}
+
+#profile-image {
+  height: $image-size;
+  width: $image-size;
+  background-image: url('/images/profile.jpg');
+  background-size: cover;
+  background-position: center;
+  @extend %sh1;
+
+  @include mobile {
+    height: $image-size * .7;
+    width: $image-size * .7;
+  };
+}
+
+#icons-holder {
+  display: flex;
+  justify-content: space-between;
+  width: min-content;
+  margin-top: 10px;
+}
+
+.sq-icon {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  @extend %sh1;
+  margin-right: 10px;
+
+  &:hover {
+    @extend %sh3;
+    cursor: pointer;
+  }
+
+  @include mobile {
+    height: 35px;
+    width: 35px;
+  };
+}
+
+#resume { background-image: url('/images/icons/resume.png'); }
+#linkedin { background-image: url('/images/icons/linkedin.png'); }
+#github { background-image: url('/images/icons/github.png'); }
+#medium { background-image: url('/images/icons/medium.png'); }
+#twitter { background-image: url('/images/icons/twitter.png'); }
+#email { background-image: url('/images/icons/email.png'); }

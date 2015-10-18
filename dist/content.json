@@ -1,0 +1,128 @@
+{
+  "work": [
+    {
+      "id": "pillpack",
+      "image": "images/work/pillpack.png",
+      "blurb": "PillPack",
+      "title": "PillPack",
+      "link": "pillpack",
+      "date": "Fall 2015",
+      "position": "Software Developer Intern"
+    },
+    {
+      "id": "involution",
+      "image": "images/work/invo.jpg",
+      "blurb": "Involution Studios",
+      "title": "Involution Studios",
+      "link": "involution",
+      "date": "Summer 2015",
+      "position": "Software Developer Intern"
+    },
+    {
+      "id": "huanglab",
+      "image": "images/work/huang.png",
+      "blurb": "Huang Lab",
+      "title": "Huang Lab @ Olin College",
+      "link": "huanglab",
+      "date": "Summer 2013-14",
+      "position": "Microbiology Research Intern"
+    }
+  ],
+  "projects": [
+    {
+      "id": "pearl",
+      "image": "images/projects/pearl.png",
+      "blurb": "Pearl",
+      "link": "pearl",
+      "date": "Summer 2015"
+    },
+    {
+      "id": "obay",
+      "image": "images/projects/obay.png",
+      "blurb": "oBay",
+      "title": "oBay: Ebay for Olin",
+      "link": "obay",
+      "date": "Spring 2015"
+    },
+    {
+      "id": "maven",
+      "image": "images/projects/maven.png",
+      "blurb": "Maven",
+      "title": "Maven: Make Real Connections (Human Factors and Interface Design)",
+      "link": "maven",
+      "date": "Fall 2014"
+    },
+    {
+      "id": "puzzlegrounds",
+      "image": "images/projects/puzzlegrounds.png",
+      "blurb": "User Research: PuzzleGrouds",
+      "title": "Puzzlegrounds (User Oriented Collaborative Design)",
+      "link": "puzzlegrounds",
+      "date": "Spring 2014"
+    },
+    {
+      "id": "save_the_children",
+      "image": "images/projects/save-the-children.png",
+      "blurb": "Save the Children: India",
+      "title": "App for Save the Children: India (Mobile Prototyping)",
+      "link": "save_the_children",
+      "date": "Fall 2014"
+    },
+    {
+      "id": "autoschematic",
+      "image": "images/projects/autoschematic.png",
+      "blurb": "AutoSchematic",
+      "title": "Autoschematic: The Automatic Wire Cutter / Stripper / Bender",
+      "link": "autoschematic",
+      "date": "Fall 2013"
+    },
+    {
+      "id": "pyre_emblem",
+      "image": "images/projects/pyre.jpg",
+      "blurb": "Pyre Emblem",
+      "title": "Pyre Emblem: A Fire Emblem Remake",
+      "link": "pyre_emblem",
+      "date": "Spring 2014"
+    },
+    {
+      "id": "e4h",
+      "image": "images/projects/foxes.jpg",
+      "blurb": "Design for the Elderly",
+      "title": "Design for the Elderly (Engineering for Humanity)",
+      "link": "e4h",
+      "date": "Spring 2014"
+    },
+    {
+      "id": "knock_knock",
+      "image": "images/projects/knock-knock.png",
+      "blurb": "Project Knock Knock",
+      "title": "Knock Knock: Rhythm and Location Password",
+      "link": "knock_knock",
+      "date": "Spring 2013"
+    },
+    {
+      "id": "path",
+      "image": "images/projects/path.jpg",
+      "blurb": "Path: Python Game",
+      "title": "Path: A Python-based Game",
+      "link": "path",
+      "date": "Spring 2014"
+    },
+    {
+      "id": "design_nature",
+      "image": "images/projects/squid.png",
+      "blurb": "Design Nature",
+      "title": "RC Toy Squid Toy for Kids (Design Nature)",
+      "link": "design_nature",
+      "date": "Fall 2012"
+    },
+    {
+      "id": "tesla",
+      "image": "images/projects/tesla.jpg",
+      "blurb": "Machinining a Tesla Turbine",
+      "title": "Machining a Tesla Turbine (Fundamentals of Machine Shop Operations)",
+      "link": "tesla",
+      "date": "Fall 2014"
+    }
+  ]
+}

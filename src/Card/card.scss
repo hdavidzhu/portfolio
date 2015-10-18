@@ -1,0 +1,48 @@
+$card-dimension: 260px;
+
+.card {
+  width: $card-dimension;
+  height: $card-dimension;
+  margin: 20px;
+  transition: 0.1s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+
+  border: 1px solid #DDDDDD;
+  box-sizing: border-box;
+  border-radius: 10%;
+
+  @extend %sh1;
+
+  &:hover {
+    cursor: pointer;
+    @extend %sh3;
+  }
+
+  &:hover .card-blurb {
+    opacity: 1;
+  }
+}
+
+.card-blurb {
+  font-size: 150%;
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,0.7);
+  padding: 5px;
+  opacity: 0;
+  transition: 0.1s ease;
+  font-weight: 400;
+
+  @extend %sh1;
+
+  @include tablet {
+    opacity: 1;
+  };
+}
