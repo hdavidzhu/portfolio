@@ -46,7 +46,6 @@ var Card = React.createClass({displayName: "Card",
   mixins: [ Router.Navigation ],
 
   onEnter: function() {
-    console.log("entered");
     this.forceUpdate();
   },
 
@@ -69,7 +68,7 @@ var Card = React.createClass({displayName: "Card",
     var _this = this;
 
     var cardStyle = {
-      'background-image': "url('" + _this.props.content.image + "')"
+      'backgroundImage': "url('" + _this.props.content.image + "')"
     }
 
     return (
@@ -132,13 +131,6 @@ var Expansion = React.createClass({displayName: "Expansion",
 
   componentDidMount: function() {
     this._update();
-
-    // unlisten = history.listenBefore(function (location) {
-    //   // this.transitionTo('expansion', {
-    //   //   expansionID: nextLink
-    //   // });
-    //   console.log(location);
-    // });
   },
 
   componentWillUnmount: function() {
@@ -211,7 +203,6 @@ var Expansion = React.createClass({displayName: "Expansion",
       nextLink = cards[cardIndex + 1].link;
     }
 
-    console.log(nextLink);
     this.transitionTo(cardType, {
       expansionID: nextLink
     });
@@ -234,7 +225,7 @@ var Expansion = React.createClass({displayName: "Expansion",
           React.createElement("div", {dangerouslySetInnerHTML: {__html: _this.state.content}}), 
 
           React.createElement("div", {className: "expansion-footer"}, 
-            React.createElement("a", {href: "/"}, "← HOME"), 
+            React.createElement("a", {href: "#"}, "← HOME"), 
             React.createElement("span", {onClick: _this._goToNext}, "NEXT →")
           )
         )

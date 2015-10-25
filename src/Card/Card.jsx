@@ -3,7 +3,6 @@ var Card = React.createClass({
   mixins: [ Router.Navigation ],
 
   onEnter: function() {
-    console.log("entered");
     this.forceUpdate();
   },
 
@@ -26,7 +25,7 @@ var Card = React.createClass({
     var _this = this;
 
     var cardStyle = {
-      'background-image': "url('" + _this.props.content.image + "')"
+      'backgroundImage': "url('" + _this.props.content.image + "')"
     }
 
     return (

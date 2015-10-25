@@ -16,13 +16,6 @@ var Expansion = React.createClass({
 
   componentDidMount: function() {
     this._update();
-
-    // unlisten = history.listenBefore(function (location) {
-    //   // this.transitionTo('expansion', {
-    //   //   expansionID: nextLink
-    //   // });
-    //   console.log(location);
-    // });
   },
 
   componentWillUnmount: function() {
@@ -95,7 +88,6 @@ var Expansion = React.createClass({
       nextLink = cards[cardIndex + 1].link;
     }
 
-    console.log(nextLink);
     this.transitionTo(cardType, {
       expansionID: nextLink
     });
@@ -118,7 +110,7 @@ var Expansion = React.createClass({
           <div dangerouslySetInnerHTML={{__html: _this.state.content}}></div>
 
           <div className="expansion-footer">
-            <a href="/">← HOME</a>
+            <a href="#">← HOME</a>
             <span onClick={_this._goToNext}>NEXT →</span>
           </div>
         </div>

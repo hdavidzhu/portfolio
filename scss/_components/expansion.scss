@@ -15,6 +15,10 @@
 .expansion-content {
   max-width: 600px;
   margin: 20px auto;
+
+  @include tablet {
+    padding: 0 20px;
+  }
 }
 
 .expansion-position {
