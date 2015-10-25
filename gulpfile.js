@@ -9,11 +9,13 @@ var rename = require('gulp-rename');
 // Javascript.
 var browserify = require('browserify');
 var reactify = require('reactify');
+var uglify = require('gulp-uglify');
 
 // CSS.
 var sass = require('gulp-sass');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer-core');
+var minCss = require('gulp-minify-css');
 
 // TASKS **********************************************************************
 
@@ -34,6 +36,13 @@ gulp.task('browserify', function(){
     .pipe(source('script.js'))
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('uglify', function() {
+  gulp.src('dist/script.js')
+    .pipe(uglify())
+    .pipe(rename('script.min.js'))
+    .pipe(gulp.dest('dist'))
+})
 
 gulp.task('watch', function() {
   gulp.watch('src/**/*.js*', ['browserify']);
@@ -58,11 +67,12 @@ gulp.task('scss:process', function() {
   gulp.src('scss/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(processors))
+    .pipe(minCss())
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', [
-  
+
   'scss:copy',
   'scss:process',
 
