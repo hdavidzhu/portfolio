@@ -25,8 +25,9 @@ var Card = React.createClass({
     var _this = this;
 
     var cardStyle = {
-      'backgroundImage': "url('" + _this.props.content.image + "')"
+      'backgroundImage': "url('dist/" + _this.props.content.image + "')"
     }
+    console.log(cardStyle);
 
     return (
       <div

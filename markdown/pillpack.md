@@ -1,4 +1,4 @@
-<img class='expansion-image' src='images/work/pillpack_desk.jpg'></img>
+<img class='expansion-image' src='dist/images/work/pillpack_desk.jpg'></img>
 
 As a software development intern at PillPack, I worked on a feature team with
 one designer and two other engineers to build in-house software that improved

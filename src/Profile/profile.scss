@@ -65,7 +65,7 @@ $image-size: 200px;
 #profile-image {
   height: $image-size;
   width: $image-size;
-  background-image: url('/images/profile.jpg');
+  background-image: url('images/profile.jpg');
   background-size: cover;
   background-position: center;
   @extend %sh1;
@@ -103,9 +103,9 @@ $image-size: 200px;
   };
 }
 
-#resume { background-image: url('/images/icons/resume.png'); }
-#linkedin { background-image: url('/images/icons/linkedin.png'); }
-#github { background-image: url('/images/icons/github.png'); }
-#medium { background-image: url('/images/icons/medium.png'); }
-#twitter { background-image: url('/images/icons/twitter.png'); }
-#email { background-image: url('/images/icons/email.png'); }
+#resume { background-image: url('images/icons/resume.png'); }
+#linkedin { background-image: url('images/icons/linkedin.png'); }
+#github { background-image: url('images/icons/github.png'); }
+#medium { background-image: url('images/icons/medium.png'); }
+#twitter { background-image: url('images/icons/twitter.png'); }
+#email { background-image: url('images/icons/email.png'); }
