@@ -70,7 +70,6 @@ var Card = React.createClass({displayName: "Card",
     var cardStyle = {
       'backgroundImage': "url('dist/" + _this.props.content.image + "')"
     }
-    console.log(cardStyle);
 
     return (
       React.createElement("div", {
@@ -142,7 +141,7 @@ var Expansion = React.createClass({displayName: "Expansion",
     var _this = this;
     var document_id = _this.getParams().expansionID;
     $.ajaxSetup({ cache: false });
-    $.get('/markdown/' + document_id + '.md', function(data) {
+    $.get('markdown/' + document_id + '.md', function(data) {
       _this.state.content = marked(data);
       _this.state.meta = _this._findIdInTree(document_id, CardContent);
       _this.setState(_this.state);
