@@ -9,8 +9,8 @@ var Profile = React.createClass({
         <div id="profile-text-content">
           <div id="profile-title">Hi, I'm David!</div>
           <div id="profile-description">
-            Currently a developer intern at <b><a href="https://www.pillpack.com/">PillPack</a></b>.
-            Also student at <b><a href="https://www.olin.edu/">Olin College of Engineering</a></b>.
+            Currently a software engineer at <b><a href="https://www.lever.co/">Lever</a></b>.
+            Former <b><a href="https://www.olin.edu/">Olin</a> student</b>.
           </div>
           <div id="icons-holder">
 

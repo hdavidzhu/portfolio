@@ -281,8 +281,8 @@ var Profile = React.createClass({displayName: "Profile",
         React.createElement("div", {id: "profile-text-content"}, 
           React.createElement("div", {id: "profile-title"}, "Hi, I'm David!"), 
           React.createElement("div", {id: "profile-description"}, 
-            "Currently a developer intern at ", React.createElement("b", null, React.createElement("a", {href: "https://www.pillpack.com/"}, "PillPack")), "." + ' ' +
-            "Also student at ", React.createElement("b", null, React.createElement("a", {href: "https://www.olin.edu/"}, "Olin College of Engineering")), "."
+            "Currently a software engineer at ", React.createElement("b", null, React.createElement("a", {href: "https://www.lever.co/"}, "Lever")), "." + ' ' +
+            "Former ", React.createElement("b", null, React.createElement("a", {href: "https://www.olin.edu/"}, "Olin"), " student"), "."
           ), 
           React.createElement("div", {id: "icons-holder"}, 
 
